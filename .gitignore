@@ -1,6 +1,5 @@
 /node_modules/
 /rev/
-/web/
 /.idea/
 /.idea/workspace.xml
 **/*.xml
@@ -11,6 +10,4 @@
 /statics/styles/main.css
 /logs/
 /.vscode/
-/statics/scripts/page/digGold/**.js
-/statics/scripts/page/digGold/**.map
-/statics/scripts/page/**/**.map
+
