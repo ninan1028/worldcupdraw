@@ -13,6 +13,7 @@
 
 @import 'components/toast.less';
 @import 'components/pop.less';
+@import 'components/flex.less';
 
 .bg-img( @url ) {
     background-size: 100% 100%;
@@ -32,6 +33,12 @@
         .bg-img('main-bg');
     }
 
+    &.game-html{
+        body{
+            .bg-img('game-bg'); 
+        }
+    }
+
     .goback{
         .px2rem(width,147);
         .px2rem(height,94);
@@ -39,6 +46,18 @@
         .pa();
         .px2rem(top,10);
         .px2rem(left,10);
+    }
+
+    .submit-btn{
+        .px2rem(width,222);
+        .px2rem(height,76);
+        .bg-img('submit-btn');
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mar{
+        .px2rem(margin-top,110);
+        .px2rem(margin-bottom,60);
     }
 
     /***主页面***/
@@ -165,6 +184,96 @@
                     .px2rem(margin-bottom,10);
                 }
             }
+        }
+    }
+
+    /***选择页面***/
+    .selectlist-body{
+
+        .list-wrap{
+            .pa();
+            .px2rem(width,652);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-40%);
+
+            li{
+                width: 100%;
+                text-align: center;
+                color: #fff;
+                font-weight: bold;
+                .px2px(font-size,50);
+                .px2rem(height,132);
+                .px2rem(line-height,132);
+                .px2rem(margin-bottom,34);
+                .bg-img('selectlist-disabled-btn');
+
+                &.active{
+                    .bg-img('selectlist-btn');
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    /***小组赛**/
+    .game16-body{
+        height: auto;
+        .title{
+            .px2rem(padding-top,30);
+            .px2rem(margin-bottom,40);
+            text-align: center;
+            color: #fff;
+            line-height: 1;
+            .px2px(font-size,30);
+            font-weight: bold;
+        }
+        .group-name{
+            .px2rem(margin-left,24);
+            text-align: center;
+            color: #fff;
+            .px2rem(width,76);
+            .px2rem(height,50);
+            font-weight: bold;
+            .bg-img('game-bg');
+            .px2rem(margin-bottom,10);
+        }
+        .group-list{
+            .px2rem(padding-left,44);
+            .px2rem(padding-right,44);
+            .px2rem(margin-bottom,26);
+            &>div{
+                .px2rem(width,131);
+                .px2rem(height,122);
+                .borderradius1(10);
+                box-sizing: border-box;
+                .px2rem(padding-top,12);
+                &.active{
+                    background: #6b5d29;
+                }
+                img{
+                    .px2rem(width,107);
+                    .px2rem(height,62);
+                    margin-left: auto;
+                    margin-right: auto;
+                    .px2rem(margin-bottom,6);
+                    display: block;
+                }
+                p{
+                    text-align: center;
+                    color: #fff;
+                    line-height: 1;
+                    .px2px(font-size,25);
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .btn-wrap{
+            .px2rem(margin-top,110);
+            .px2rem(padding-bottom,60);
         }
     }
 }

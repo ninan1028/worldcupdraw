@@ -9,8 +9,8 @@
 </head>
 <body class="reward-body">
     <!--内容区域-->
-    <div id="app">
-            <div class="goback"></div>
+    <div id="app" v-cloak>
+            <div class="goback" @click="goback" ></div>
             <div class="reward-wrap">
                 <div class="tip"></div>
                 <div class="title">中奖名单与微信公众号<br>
@@ -25,7 +25,8 @@
               </div>
             </div>
     </div>   
-	@@include('vue-footer.html')
+    @@include('vue-footer.html')
+    <script type="text/javascript" src="<%=jsUrl%>/page/cupDraw/reward.main.js"></script>
 </body>
 
 </html>

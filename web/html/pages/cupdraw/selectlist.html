@@ -92,19 +92,23 @@ var shareBasePath='undefined';
 
 	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-e8e11b95cd.css" />
 </head>
-<body class="rules-body">
-	<!--内容区域-->
-     <div class="goback"></div>
-      <div class="rules-wrap">
-          <div class="title">活动规则</div>
-        <div class="content">
-                活动规则：<br>
-                根据世界杯比赛时间选择晋级球队参与游戏，如小组赛晋级球队，从32支球队中选出16球队，按照小组赛出线结果猜中出现球队的用户，获得参与抽奖资格，半决赛与决赛规则变为猜比分获得抽奖资格，（半决赛与决赛猜比分竞猜结果不包含加时赛与点球结果）。国网河北电力微信公众号公布，用户也可在微信H5中奖名单中查看中奖结果。
-        </div>
-      </div>
-	 <!--底部引用的js资源-->
+<body class="selectlist-body">
+    <!--内容区域-->
+    <div id="app" v-cloak>
+            <div class="list-wrap">
+               <ul>
+                   <li class="active">小组赛</li>
+                   <li>1/8决赛</li>
+                   <li>1/4决赛</li>
+                   <li>半决赛</li>
+                   <li>决赛</li>
+               </ul>
+            </div>
+    </div>   
+     <!--底部引用的js资源-->
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-89a8ab2ab0.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/selectlist-cf0b5f28c9.main.js"></script>
 </body>
 
 </html>

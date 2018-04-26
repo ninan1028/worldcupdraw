@@ -90,12 +90,12 @@ var shareBasePath='undefined';
 </script>
 
 
-	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-b61000b8cf.css" />
+	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-e8e11b95cd.css" />
 </head>
 <body class="reward-body">
     <!--内容区域-->
-    <div id="app">
-            <div class="goback"></div>
+    <div id="app" v-cloak>
+            <div class="goback" @click="goback" ></div>
             <div class="reward-wrap">
                 <div class="tip"></div>
                 <div class="title">中奖名单与微信公众号<br>
@@ -110,9 +110,10 @@ var shareBasePath='undefined';
               </div>
             </div>
     </div>   
-	 <!--底部引用的js资源-->
+     <!--底部引用的js资源-->
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-89a8ab2ab0.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/reward-c65078fa38.main.js"></script>
 </body>
 
 </html>
