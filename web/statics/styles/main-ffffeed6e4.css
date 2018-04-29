@@ -1314,6 +1314,7 @@ th {
   /***中奖名单**/
   /***选择页面***/
   /***小组赛**/
+  /**1/8决赛 1/4决赛***/
 }
 .main-html body {
   min-height: 100%;
@@ -1329,6 +1330,35 @@ th {
           background-size: 100% 100%;
   background-repeat: no-repeat;
   background-image: url('../images/game-bg.png');
+  height: auto;
+}
+.main-html.game-html .title {
+  padding-top: 0.4rem;
+  margin-bottom: 0.53333333rem;
+  text-align: center;
+  color: #fff;
+  line-height: 1;
+  font-size: 15px;
+  font-weight: bold;
+}
+[data-dpr="2"] .main-html.game-html .title {
+  font-size: 30px;
+}
+[data-dpr="2.5"] .main-html.game-html .title {
+  font-size: 38px;
+}
+[data-dpr="2.75"] .main-html.game-html .title {
+  font-size: 41px;
+}
+[data-dpr="3"] .main-html.game-html .title {
+  font-size: 45px;
+}
+[data-dpr="4"] .main-html.game-html .title {
+  font-size: 60px;
+}
+.main-html.game-html .btn-wrap {
+  margin-top: 1.46666667rem;
+  padding-bottom: 0.8rem;
 }
 .main-html .goback {
   width: 1.96rem;
@@ -1673,33 +1703,6 @@ th {
 .main-html .selectlist-body .list-wrap li:last-child {
   margin-bottom: 0;
 }
-.main-html .game16-body {
-  height: auto;
-}
-.main-html .game16-body .title {
-  padding-top: 0.4rem;
-  margin-bottom: 0.53333333rem;
-  text-align: center;
-  color: #fff;
-  line-height: 1;
-  font-size: 15px;
-  font-weight: bold;
-}
-[data-dpr="2"] .main-html .game16-body .title {
-  font-size: 30px;
-}
-[data-dpr="2.5"] .main-html .game16-body .title {
-  font-size: 38px;
-}
-[data-dpr="2.75"] .main-html .game16-body .title {
-  font-size: 41px;
-}
-[data-dpr="3"] .main-html .game16-body .title {
-  font-size: 45px;
-}
-[data-dpr="4"] .main-html .game16-body .title {
-  font-size: 60px;
-}
 .main-html .game16-body .group-name {
   margin-left: 0.32rem;
   text-align: center;
@@ -1766,9 +1769,122 @@ th {
 [data-dpr="4"] .main-html .game16-body .group-list > div p {
   font-size: 50px;
 }
-.main-html .game16-body .btn-wrap {
-  margin-top: 1.46666667rem;
-  padding-bottom: 0.8rem;
+.main-html .game8-body article {
+  padding-top: 0.4rem;
+}
+.main-html .game8-body .title2 {
+  padding-top: 1.06666667rem;
+}
+.main-html .game8-body .item {
+  width: 9.2rem;
+  height: 1.28rem;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.72rem;
+  padding-right: 0.72rem;
+  -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url('../images/list-bg.png');
+  margin-bottom: 0.53333333rem;
+  font-weight: bold;
+}
+.main-html .game8-body .item:nth-child(4) {
+  margin-bottom: 1.06666667rem;
+}
+.main-html .game8-body .item .name {
+  height: 1.28rem;
+  width: 2.18666667rem;
+  line-height: 1.28rem;
+  text-align: center;
+  color: #fff;
+  font-size: 17px;
+}
+[data-dpr="2"] .main-html .game8-body .item .name {
+  font-size: 34px;
+}
+[data-dpr="2.5"] .main-html .game8-body .item .name {
+  font-size: 43px;
+}
+[data-dpr="2.75"] .main-html .game8-body .item .name {
+  font-size: 47px;
+}
+[data-dpr="3"] .main-html .game8-body .item .name {
+  font-size: 51px;
+}
+[data-dpr="4"] .main-html .game8-body .item .name {
+  font-size: 68px;
+}
+.main-html .game8-body .item .name.active {
+  -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url('../images/list-selected.png');
+}
+.main-html .game8-body .item .info {
+  text-align: center;
+  line-height: 1;
+}
+.main-html .game8-body .item .info p:first-child {
+  color: #fff;
+  font-size: 17px;
+  margin-bottom: 0.18666667rem;
+}
+[data-dpr="2"] .main-html .game8-body .item .info p:first-child {
+  font-size: 34px;
+}
+[data-dpr="2.5"] .main-html .game8-body .item .info p:first-child {
+  font-size: 43px;
+}
+[data-dpr="2.75"] .main-html .game8-body .item .info p:first-child {
+  font-size: 47px;
+}
+[data-dpr="3"] .main-html .game8-body .item .info p:first-child {
+  font-size: 51px;
+}
+[data-dpr="4"] .main-html .game8-body .item .info p:first-child {
+  font-size: 68px;
+}
+.main-html .game8-body .item .info p:last-child {
+  color: #fff;
+  font-size: 17px;
+}
+.main-html .game8-body .item .info p:last-child span {
+  color: #ffba0c;
+  font-size: 20px;
+}
+[data-dpr="2"] .main-html .game8-body .item .info p:last-child span {
+  font-size: 40px;
+}
+[data-dpr="2.5"] .main-html .game8-body .item .info p:last-child span {
+  font-size: 50px;
+}
+[data-dpr="2.75"] .main-html .game8-body .item .info p:last-child span {
+  font-size: 55px;
+}
+[data-dpr="3"] .main-html .game8-body .item .info p:last-child span {
+  font-size: 60px;
+}
+[data-dpr="4"] .main-html .game8-body .item .info p:last-child span {
+  font-size: 80px;
+}
+[data-dpr="2"] .main-html .game8-body .item .info p:last-child {
+  font-size: 34px;
+}
+[data-dpr="2.5"] .main-html .game8-body .item .info p:last-child {
+  font-size: 43px;
+}
+[data-dpr="2.75"] .main-html .game8-body .item .info p:last-child {
+  font-size: 47px;
+}
+[data-dpr="3"] .main-html .game8-body .item .info p:last-child {
+  font-size: 51px;
+}
+[data-dpr="4"] .main-html .game8-body .item .info p:last-child {
+  font-size: 68px;
 }
 
 /*# sourceMappingURL=main.css.map */

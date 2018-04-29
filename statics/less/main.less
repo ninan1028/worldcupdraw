@@ -36,6 +36,21 @@
     &.game-html{
         body{
             .bg-img('game-bg'); 
+            height: auto;
+        }       
+        .title{
+            .px2rem(padding-top,30);
+            .px2rem(margin-bottom,40);
+            text-align: center;
+            color: #fff;
+            line-height: 1;
+            .px2px(font-size,30);
+            font-weight: bold;
+        }
+
+        .btn-wrap{
+            .px2rem(margin-top,110);
+            .px2rem(padding-bottom,60);
         }
     }
 
@@ -220,16 +235,7 @@
 
     /***小组赛**/
     .game16-body{
-        height: auto;
-        .title{
-            .px2rem(padding-top,30);
-            .px2rem(margin-bottom,40);
-            text-align: center;
-            color: #fff;
-            line-height: 1;
-            .px2px(font-size,30);
-            font-weight: bold;
-        }
+        
         .group-name{
             .px2rem(margin-left,24);
             text-align: center;
@@ -271,9 +277,62 @@
             }
         }
 
-        .btn-wrap{
-            .px2rem(margin-top,110);
-            .px2rem(padding-bottom,60);
+
+    }
+
+    /**1/8决赛 1/4决赛***/
+    .game8-body{
+        article{
+            .px2rem(padding-top,30);
         }
+        .title2{
+            .px2rem(padding-top,80);
+        }
+        .item{
+          .px2rem(width,690);
+          .px2rem(height,96);
+          box-sizing: border-box;
+          margin-left: auto;
+          margin-right: auto;
+          .px2rem(padding-left,54);
+          .px2rem(padding-right,54);
+          .bg-img('list-bg');
+          .px2rem(margin-bottom,40);
+          font-weight: bold;
+          &:nth-child(4){
+              .px2rem(margin-bottom,80);
+          }
+           .name{
+               .px2rem(height,96);
+               .px2rem(width,164);
+               .px2rem(line-height,96);
+               text-align: center;
+               color: #fff;
+               .px2px(font-size,34);              
+               &.active{
+                   .bg-img('list-selected');
+               }
+           }
+           .info{
+               text-align: center;
+               line-height: 1;
+               p:first-child{
+                   color: #fff;
+                   .px2px(font-size,34);
+                   .px2rem(margin-bottom,14);
+               }
+               p:last-child{
+                   span{
+                    color:#ffba0c;
+                    .px2px(font-size,40);
+                   }
+                   color: #fff;
+                   .px2px(font-size,34);
+               }
+           }
+
+
+        }
+
     }
 }
