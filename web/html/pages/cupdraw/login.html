@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html class="main-html  game-html">
+<html class="main-html">
+
 <head>
-	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<meta name="format-detection" content="telephone=no" />
-	<title>风驰电掣世界杯</title>
-	<script>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>风驰电掣世界杯</title>
+    <script>
 var basePath = 'http://localhost:8080';
 var htmlbasePath='http://localhost:8080/html';
 var imgUrl = 'http://localhost:8080/statics/images';
@@ -90,46 +91,73 @@ var shareBasePath='undefined';
 </script>
 
 
-	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-e1c914cf52.css" />
+    <link rel="stylesheet" href="http://localhost:8080/statics/styles/main-e1c914cf52.css" />
 </head>
-<body class="game8-body">
-    <!--内容区域-->
-    <div id="app" v-cloak>
-           <div class="title title2">1/4决赛猜中三支出线球队，获得抽奖资</div>
 
-               <div class="item"  flex="main:justify">
-                   <div class="name active">
-                       俄罗斯
-                   </div>
-                   <div class="info">
-                       <p>J 喀山</p>
-                       <p><span>7月2日</span> 3:00</p>
-                   </div>
-                   <div class="name">
-                     克罗地亚
-                   </div>
-               </div>
-               <div class="item"  flex="main:justify">
-                <div class="name">
-                    俄罗斯
+<body class="login-body">
+    <!--内容区域-->
+    <div class="wrap" id="app">
+        <div class="login-wrap" v-show="status==1">
+            <div class="title">手机号登录</div>
+            <div class="form">
+                <div class="input">
+                    <span>手机号</span>
+                    <input class="input1" v-model="telephone" type="tel">
                 </div>
-                <div class="info">
-                    <p>J 喀山</p>
-                    <p><span>7月2日</span> 3:00</p>
+                <div class="input">
+                    <span>密码</span>
+                    <input class="input1" v-model="password"  type="tel">
                 </div>
-                <div class="name">
-                  克罗地亚
+                <div class="input">
+                    <span>验证码</span>
+                    <input class="input2" v-model="yzm" maxlength="4" type="tel">
+                    <img class="yzmimg" :src="yzmimg" alt="">
+                </div>
+                <div class="tip">还未注册,<span @click="changestatus(2)">请注册</span></div>
+            </div>
+            <div class="btn">
+                <div class="login-btn">登录</div>
+            </div>
+        </div>
+        <div class="login-wrap" v-show="status==2">
+                <div class="title">手机号注册</div>
+                <div class="form">
+                    <div class="input">
+                        <span>手机号</span>
+                        <input class="input1" v-model="telephone" type="tel">
+                    </div>
+                    <div class="input">
+                        <span>密码</span>
+                        <input class="input1" v-model="password" type="tel">
+                    </div>
+                    <div class="input">
+                            <span>再次密码</span>
+                            <input class="input1" v-model="againpassword" type="tel">
+                        </div>
+                    <div class="input">
+                        <span>验证码</span>
+                        <input class="input2" maxlength="4" type="tel">
+                        <img class="yzmimg" src="" alt="">
+                    </div>
+                    <div class="tip">已注册,<span @click="changestatus(1)">去登录</span></div>
+                </div>
+                <div class="btn">
+                    <div class="login-btn">注册</div>
                 </div>
             </div>
-          <div class="btn-wrap">
-            <div class="submit-btn"></div>
-          </div>
 
-    </div>   
+        <div class="info">
+            <p>输入个人手机，设定密码，完成登录 </p>
+            <p>请牢记密码，密码丢失无法找回 </p>
+            <p>（但不影响兑奖）</p>
+            <p>奖品发放以手机号作为凭证，请熟知</p>
+        </div>
+
+    </div>
      <!--底部引用的js资源-->
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-d1da4726e2.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/game16-509edb67f6.main.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/login-80fd24e31b.main.js"></script>
 </body>
 
 </html>

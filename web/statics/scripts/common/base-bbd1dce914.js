@@ -934,19 +934,49 @@ GB.utils.questiontip = function(title, content, option, container) {
 }
 
 
-/******
- * 与app交互相关
- */
-
-GB.utils=$.extend({},GB.utils,{
-	clientInit:function(cb,context){
-		var context=context||this;
-		// 客户端初始化之后调用 依赖与 clientReady函数 排除右上角的分享调用 
-		sessionProObj.getUserInfo(function(telephone,sessionId){
-           if(cb){
-			   cb.call(context,telephone,sessionId);
-		   }
-		})
-
+GB.cookie={
+	getCookie:function(cookieName) {
+		var arg = cookieName + "=";
+		var alen = arg.length;
+		var clen = document.cookie.length;
+		var i = 0;
+		while (i < clen) {
+			var j = i + alen;
+			if (document.cookie.substring(i, j) == arg) {
+				var endstr = document.cookie.indexOf(";", j);
+				if (endstr == -1) {
+					endstr = document.cookie.length;
+				}
+				var ret = unescape(document.cookie.substring(j, endstr));
+				if (ret != "") {
+					return ret;
+				}
+			}
+			i = document.cookie.indexOf(" ", i) + 1;
+			if (i == 0)
+				break;
+		}
+		return "";
+	},
+	delCookie:function(cookieName){
+		var exp = new Date();
+		exp.setTime(exp.getTime() - 100);
+		document.cookie = cookieName + "=; path=/; expires=" + exp.toGMTString();
+		document.cookie = cookieName + "=; path=/; expires=" + exp.toGMTString();
+	},
+	addCookie:function(cookieName, cookieValue) {
+		var expdate = new Date();
+		var argv = arguments;
+		var argc = arguments.length;
+		var expires = (argc > 2 && argv[2] != 0) ? argv[2] : null;
+		var path = (argc > 3) ? argv[3] : null;
+		var domain = (argc > 4) ? argv[4] : null;
+		var secure = (argc > 5) ? argv[5] : false;
+		if (expires != null) {
+			expdate.setTime(expdate.getTime() + (expires * 1000));
+		}
+		document.cookie = cookieName + "=" + escape(cookieValue) + ((expires == null) ? "" : ("; expires=" + expdate.toGMTString())) + ((path == null) ? ";path=/" : ("; path=" + path))
+				+ ((domain == null) ? "" : ("; domain=" + domain)) + ((secure == true) ? "; secure" : "");
 	}
-})
+}
+

@@ -58,7 +58,7 @@ var config = {
         img: 'http://localhost:8080/statics/images',
         img2:'http://localhost:8080/statics/images',
         basepath: 'http://localhost:8080',
-        htmlbasepath: 'http://localhost:8080/web/html'
+        htmlbasepath: 'http://localhost:8080/html'
     },
     test: {
         js: 'https://dev.huangjinqianbao.com/GBankerWebApp/statics/scripts',

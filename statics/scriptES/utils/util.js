@@ -57,5 +57,11 @@ export const isWX=()=>{
 	return /micromessenger/.test(ua);
 }
 
+export const isLogin=()=>{
+	//判断是否登录
+	var telephone= GB.cookie.getCookie('telephone');
+	return !!telephone
+}
+
 
 

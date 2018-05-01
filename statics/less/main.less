@@ -48,6 +48,32 @@
             font-weight: bold;
         }
 
+        .title3{
+            .px2rem(padding-top,100);
+            text-align: center;
+            font-weight: bold;
+            span{
+                display: inline-block;
+                text-align: center;
+                .px2rem(width,276);
+                .px2rem(height,108);
+                .px2rem(line-height,108);
+                color: #000;
+                background: #eecb3d;
+                .px2px(font-size,60);
+
+            }
+        }
+
+        .des{
+            text-align: center;
+            color: #fff;
+            .px2rem(margin-top,40);
+            .px2rem(margin-bottom,50);
+            .px2px(font-size,30);
+            line-height: 1.4;
+        }
+
         .btn-wrap{
             .px2rem(margin-top,110);
             .px2rem(padding-bottom,60);
@@ -334,5 +360,217 @@
 
         }
 
+    }
+
+    /***半决赛 决赛****/
+    .game2-body{
+        
+         .line{
+             .px2rem(padding-left,110);
+             .px2rem(padding-right,110);
+             .px2rem(margin-bottom,80);
+
+             .county-item{
+                 .px2rem(margin-bottom,30);
+                 &>div{
+                     .px2rem(width,164);
+                     .px2rem(height,109);
+                     img{
+                         display: block;
+                         width: 100%;
+                     }
+
+                     &.vs{
+                         .px2rem(width,130);
+                         .px2rem(height,98);
+                         .bg-img('icon-vs');
+                     }
+                 }
+             }
+
+             .input-item{
+                 &>div{
+                    .px2rem(width,155);
+                    .px2rem(height,87);
+                    background: #feeda8;
+                    .borderradius1(8);
+                    border: 2px solid #eecb3d;
+                     input{
+                      border: 0;
+                      outline: 0;
+                      display: block;
+                      width: 100%;
+                      text-align: center;
+                      color: #000;
+                      font-weight: bold;
+                      background: #feeda8;
+                      .px2px(font-size,58);
+
+                     }
+                 }
+             }
+         }
+    }
+
+    /***竞猜成功页面***/
+    .success-body{
+        .px2rem(padding-top,130);
+        .success-wrap{
+           
+            .px2rem(width,649);
+            .borderradius1(8);
+            background: #ffffbd;
+            box-sizing: border-box;
+            .px2rem(padding-left,20);
+            .px2rem(padding-right,20);
+            .px2rem(padding-top,30);
+            .px2rem(padding-bottom,40);
+            margin-left: auto;
+            margin-right: auto;
+            .title{
+                text-align: center;
+                line-height: 1.4;
+                color: #664106;
+                .px2px(font-size,48);
+                border-bottom: 1px solid #664106;
+            }
+            .content{
+               .padding(40,60,120,60); 
+               color: #664106;
+               .px2px(font-size,40);
+               line-height: 1.3;
+            }
+
+            .btn{
+
+                &>div{
+                    .px2rem(width,421);
+                    .px2rem(height,98);
+                    margin-left: auto;
+                    margin-right: auto;
+                    .px2rem(margin-bottom,40);
+
+                    &.share-btn{
+                        .bg-img('share-btn');
+                    }
+                    &.floww-btn{
+                        .bg-img('follow-btn');
+                    }
+                }
+            }
+            
+        }
+    }
+
+    /***登录注册页面****/
+    .login-body{
+        .px2rem(padding-top,130);
+        .wrap{
+            .px2rem(width,649);
+            .borderradius1(8);
+            background: #ffffbd;
+            box-sizing: border-box;
+            .px2rem(padding-left,20);
+            .px2rem(padding-right,20);
+            .px2rem(padding-top,30);
+            .px2rem(padding-bottom,80);
+            margin-left: auto;
+            margin-right: auto;
+            .pr();
+
+            .title{
+                text-align: center;
+                line-height: 1.4;
+                color: #664106;
+                .px2px(font-size,48);
+                border-bottom: 1px solid #664106;
+            }
+
+            .login-btn{
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                .px2rem(width,334);
+                .px2rem(height,114);
+                .px2rem(line-height,114);
+                .bg-img('login-bg');
+                color: #fff;
+                font-weight: bold;
+                .px2px(font-size,64);
+                .px2rem(margin-top,110);
+                .px2rem(margin-bottom,100);
+            }
+            .info{
+                text-align: center;
+                color: #664106;
+                .px2px(font-size,28);
+                line-height: 1.4;
+            }
+
+            .form{
+                margin-left: auto;
+                margin-right: auto;
+                .px2rem(margin-top,60);
+
+                .input{
+                    .clearfix();
+                    .px2rem(margin-bottom,40);
+                    span{
+                        .fl();
+                        text-align: right;
+                        .px2rem(width,130);
+                        .px2rem(height,65);
+                        .px2rem(line-height,65);
+                        .px2px(font-size,40);
+                        color: #664106;
+                        .px2rem(margin-right,10);
+                    }
+                    .input1{
+                        .px2rem(width,395);
+                        .px2rem(height,65);
+                        box-sizing: border-box;
+                        .px2rem(padding-left,15);
+                        .fl();
+                        background: #ffffd1;
+                        border: 1px solid #f8e396;
+                        .borderradius1(8);
+                        color: #664106;
+                    }
+                    .input2{
+                        .px2rem(width,181);
+                        .px2rem(height,65);
+                        box-sizing: border-box;
+                        .px2rem(padding-left,15);
+                        .fl();
+                        background: #ffffd1;
+                        border: 1px solid #f8e396;
+                        .borderradius1(8);
+                        .px2rem(margin-right,25);
+                        color: #664106;
+                    }
+
+                    .yzmimg{
+                        .fl();
+                        .px2rem(width,184);
+                        .px2rem(height,63);
+                        background: #efefef;
+                    }
+
+                    
+                }
+                .tip{
+                    text-align: right;
+                    .px2px(font-size,30);
+                    color: #664106;
+                    line-height: 1.3;
+                    .px2rem(margin-right,60);
+
+                    span{
+                        border-bottom:1px solid #664106;
+                    }
+
+                }
+            }
+        } 
     }
 }
