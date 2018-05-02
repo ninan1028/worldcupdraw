@@ -13,7 +13,7 @@ var vue = new Vue({
         yzmimg: ''
     },
     mounted: function mounted() {
-        this.yzmimg = basePath + '/activity/getVerificationCode';
+        this.yzmimg = 'localhost:8002/activity/getVerificationCode';
     },
 
     methods: {
