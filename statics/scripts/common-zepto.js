@@ -455,57 +455,6 @@ GB.utils = {
 			);
 		}
 	},
-
-	//调用客户端方法(ios,android通用)
-	send: function(data) {
-		if(this.getPlatform() == 'android') {
-			android_new.send(data);
-		} else {
-			ios.send(data);
-		}
-	},
-	callCustomMethod: function(methodName, params, cb) {
-		this.send({
-			'methodName': methodName,
-			'data': params,
-			'responseCallback': function(responseData) {
-				cb(responseData);
-			}
-		});
-	},
-	//打开推广(ios,android通用)
-	startApp: function(methodName, params) {
-		if(getPlatform() == 'android') {
-			android_new.send({
-				'methodName': methodName,
-				'data': params,
-				'responseCallback': function(responseData) {}
-			});
-		} else {
-			ios.send({
-				'methodName': methodName,
-				'data': params,
-				'responseCallback': function(responseData) {}
-			});
-		}
-	},
-	//拨打客服电话
-	callServicePhone: function() {
-		var params_phone = {
-			'title': "拨打客服电话:4000-339-993",
-			'message': "",
-			'telephone': "4000339993",
-		};
-		GB.utils.callCustomMethod("callServicePhone", params_phone);
-	},
-	toast: function(msg) {
-		var data = { 'msg': msg };
-		this.send({
-			'methodName': "showToast",
-			'data': data,
-			'responseCallback': function(responseData) {}
-		});
-	},
 	htoast: function(msg, bottom, time, wrap) {
 		var time = time || 1500;
 		var wrap = wrap || "body";
@@ -569,94 +518,6 @@ GB.utils = {
 			}, 200)
 		}, time)
 	},
-	goOutSide: function(href) {
-		//用第三方应用打开链接
-		if(GB.utils.getPlatform() != 'android') {
-			GB.utils.callCustomMethod('openSafariUrl', { "url": href });
-			return false;
-		} else {
-			return true;
-		}
-	},
-	template: function(templateid, wrapid, data, type) {
-
-		var type = type || "html";
-		//模板
-		if(templateid.indexOf("#") <= -1) {
-			templateid = "#" + templateid;
-		}
-		if(wrapid.indexOf("#") <= -1) {
-			wrapid = "#" + wrapid;
-		}
-		var Template = Handlebars.compile($(templateid).html());
-		var $wrap = $(wrapid);
-		if(type == "html") {
-			$wrap.html(Template(data));
-		} else {
-			$wrap.append(Template(data));
-		}
-	},
-	isLogin: function() {
-		var obj = false;
-		GB.ajax({
-			url: basePath + '/user/getstore',
-			type: 'post',
-			async: false
-		}).done(function(_data) {
-			var data = _data._data;
-			if(data.telephone) {
-				obj = data;
-			}
-		})
-		return obj;
-	},
-	alert: function(msg) {
-		if(GB.utils.getPlatform() == 'android') {
-			GB.utils.callCustomMethod("showAlert", { 'msg': msg });
-		} else {
-			alert(msg);
-		}
-	},
-	singleLogout: function(_data, fn) {
-		//只执行一次 
-		if(GB.isLogin) {
-			if((GB[_data.code] == '0002') || (GB[_data.code] == '0003')) {
-				GB.isLogin = false;
-				fn();
-			}
-		}
-	},
-	singleAlert: function(_data, fn) {
-		//只执行一次
-		if(!GB[_data.code]) {
-			GB[_data.code] = true;
-			if(_data.code != '0021' && _data.code != '0091') {
-				// 0021时 在ajax 单独处理
-				if(fn) {
-					fn();
-				}
-			}
-		}
-	},
-	clickShare: function(code, param) {
-		//页面内点击进行分享
-		var param = param || {};
-		param.code = code;
-		var params_shared = {
-			'type': "1", //分享类型 1：新闻类分享  2：截图分享
-			'code': '', //活动code，分享统计标示
-			'needLogin': '0', //0 不需要登录 1 需要登录
-			'platform': '0', //0:弹出选择平台 1:微信好友 2:微信朋友圈 3：QQ好友 4：QQ空间 5：复制链接
-			'pushShareMark': '', //是否需要统计用户分享
-		};
-		params_shared.$.extend({}, params_shared, param);
-		if(!params_shared.code) {
-			console.log("需要传入分享code");
-			return;
-		}
-		GB.utils.callCustomMethod("share", params_shared);
-	},
-	wxShare: '',
 	ModalHelper: (function(bodyCls) {
 		var scrollTop;
 		return {
@@ -763,6 +624,28 @@ GB.valid = {
 			return false
 		}
 		return true;
+	},
+	checkPassword:function(password){
+		if(!password) {
+			GB.utils.htoast('请输入密码');
+			return false
+		}
+		if( password.length >10) {
+			GB.utils.htoast('密码位数应小于10');
+			return false
+		}
+		return true;
+	},
+	checkYzm:function(yzm){
+		if(!yzm) {
+			GB.utils.htoast('请输入验证码');
+			return false
+		}
+		if( yzm.length >4) {
+			GB.utils.htoast('验证码格式不正确');
+			return false
+		}
+		return true;
 	}
 }
 
@@ -811,21 +694,7 @@ GB.Ajax = {
 		}
 		defaults = $.extend({}, defaults, param);
 		return $.ajax(defaults).then(function(_data) {
-			if(_data.code === "0000") {
-				return _data;
-			} else {
-				//console.log(_data);
-				if(_data.code === '0003' || _data.code === '0002') {
-					//踢出 未登录
-					GB.post(basePath + '/user/setstore', { telephone: '', sessionId: '' }).done(function() {
-						console.log("清除session");
-					})
-				}
-				if(_data.msg) {
-					GB.utils.htoast(_data.msg);
-				}
-				return $.Deferred().reject(_data);
-			}
+			 return _data;
 		}, function(err) {
 			console.log(err);
 

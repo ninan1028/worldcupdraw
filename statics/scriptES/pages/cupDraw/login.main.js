@@ -1,23 +1,97 @@
 
 
 
+import {login,register} from '../../service/cupdraw/service'
+
 var vue= new Vue({
 	el:'#app',
 	data:{
       status:1,
       telephone:'',
       password:'',
-      againpassword:'',
       yzm:'',
+      rtelephone:'',
+      rpassword:'',
+      ragainpassword:'',
+      ryzm:'',
       logincount:0,
       yzmimg:''
 	},
 	mounted(){
-		this.yzmimg='localhost:8002/activity/getVerificationCode'
+		this.yzmimg=proxypath+'/activity/getVerificationCode'
     },
     methods:{
         changestatus(index){
                this.status=index;
+               this.changeYzm();
+        },
+        changeYzm(){
+            this.yzmimg=proxypath+'/activity/getVerificationCode?random='+Math.random();
+        },
+        login(){
+            // 登录操作
+
+            // 验证
+            if(!GB.valid.checkTelephone(this.telephone)){
+              return false;
+            } 
+            if(!GB.valid.checkPassword(this.password)){
+                return false;
+            }
+            var data={
+                phone:this.telephone,
+                password:this.password,
+                verificationCode:this.yzm
+            }
+            login(data).then((res)=>{
+                if(res.status==0){
+                    // 登录成功
+                    GB.cookie.addCookie('telephone',data.phone);
+                    // 调到主页面
+                    location.href=htmlbasePath+'/index.html';
+                } else{
+                    if(res.msg){
+                        GB.utils.htoast(res.msg);
+                    }
+                }
+            })
+
+        },
+        register(){
+            //注册操作
+
+              // 验证
+              if(!GB.valid.checkTelephone(this.rtelephone)){
+                return false;
+              } 
+              if(!GB.valid.checkPassword(this.rpassword)){
+                  return false;
+              }
+              if(this.rpassword!=this.ragainpassword){
+                  GB.utils.htoast('两次输入的密码不一致');
+                  return;
+              }
+              if(!GB.valid.checkYzm(this.ryzm)){
+                return false;
+            }
+              var data={
+                phone:this.rtelephone,
+                password:this.rpassword,
+                verificationCode:this.ryzm
+             }
+             register(data).then((res)=>{
+                if(res.status==0){
+                    // 注册成功
+                    GB.cookie.addCookie('telephone',data.phone);
+                    // 调到主页面
+                    location.href=htmlbasepath+'/index.html';
+                } else{
+                    if(res.msg){
+                        GB.utils.htoast(res.msg);
+                    }
+                }
+            })
+
         }
     }
 })

@@ -13,7 +13,7 @@ function request(url, data, type) {
 	}
 	var param = {
 		type: type,
-		url: basePath + url,
+		url: proxypath + url,
 		data: data
 	}
 	return new Promise((resolve, reject) => {

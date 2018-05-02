@@ -58,7 +58,8 @@ var config = {
         img: 'http://localhost:8080/statics/images',
         img2:'http://localhost:8080/statics/images',
         basepath: 'http://localhost:8080',
-        htmlbasepath: 'http://localhost:8080/html'
+        htmlbasepath: 'http://localhost:8080/html',
+        proxypath:'http://localhost:8002'
     },
     test: {
         js: 'https://dev.huangjinqianbao.com/GBankerWebApp/statics/scripts',
@@ -70,13 +71,12 @@ var config = {
         shareBasePath: 'https://dev.huangjinqianbao.com/GBankerWebWapOld/'
     },
     online: {
-        js: 'https://static02.huangjinqianbao.com/GBankerWebApp/statics/scripts',
-        css: 'https://static02.huangjinqianbao.com/GBankerWebApp/statics/styles',
-        img: 'https://static02.huangjinqianbao.com/GBankerWebApp/statics/images',
-        img2: 'https://m.g-banker.com/GBankerWebApp/statics/images',
-        basepath: 'https://m.g-banker.com/GBankerWebApp',
-        htmlbasepath: 'https://m.g-banker.com/GBankerWebApp/html',
-        shareBasePath: "https://m.g-banker.com/"
+        js: 'http://39.105.57.97:8080/statics/scripts',
+        css: 'http://39.105.57.97:8080/statics/styles',
+        img: 'http://39.105.57.97:8080/statics/images',
+        basepath: 'http://39.105.57.97:8080',
+        htmlbasepath: 'http://39.105.57.97:8080/html',
+        proxypath: "http://39.105.57.97:8080"
     }
 }
 var knownOptions = {
@@ -297,6 +297,7 @@ gulp.task('inject', function () {
         .pipe(inject.replace('<%=basePath%>', path.basepath))
         .pipe(inject.replace('<%=htmlbasePath%>', path.htmlbasepath))
         .pipe(inject.replace('<%=shareBasePath%>', path.shareBasePath))
+        .pipe(inject.replace('<%=proxypath%>', path.proxypath))
         .pipe(gulp.dest('web/html'))
 })
 

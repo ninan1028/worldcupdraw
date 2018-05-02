@@ -9,7 +9,7 @@
 var basePath = 'http://localhost:8080';
 var htmlbasePath='http://localhost:8080/html';
 var imgUrl = 'http://localhost:8080/statics/images';
-var imgUrl2='http://localhost:8080/statics/images'; // 做黄金红包 html生成图片 图片不能跨域
+var proxypath='http://localhost:8002'; // 做黄金红包 html生成图片 图片不能跨域
 var shareBasePath='undefined';
 !function(N, M) {
     function L() {
@@ -91,7 +91,7 @@ var shareBasePath='undefined';
 </script>
 
 
-    <link rel="stylesheet" href="http://localhost:8080/statics/styles/main-e1c914cf52.css" />
+    <link rel="stylesheet" href="http://localhost:8080/statics/styles/main-33434fcbb6.css" />
 </head>
 
 <body class="login-body">
@@ -102,21 +102,21 @@ var shareBasePath='undefined';
             <div class="form">
                 <div class="input">
                     <span>手机号</span>
-                    <input class="input1" v-model="telephone" type="tel">
+                    <input class="input1" v-model="telephone" maxlength="11" type="tel">
                 </div>
                 <div class="input">
                     <span>密码</span>
-                    <input class="input1" v-model="password"  type="tel">
+                    <input class="input1" v-model="password" maxlength="10"  type="password">
                 </div>
                 <div class="input">
                     <span>验证码</span>
                     <input class="input2" v-model="yzm" maxlength="4" type="tel">
-                    <img class="yzmimg" :src="yzmimg" alt="">
+                    <img class="yzmimg" :src="yzmimg" @click="changeYzm" alt="">
                 </div>
                 <div class="tip">还未注册,<span @click="changestatus(2)">请注册</span></div>
             </div>
             <div class="btn">
-                <div class="login-btn">登录</div>
+                <div class="login-btn" @click="login" >登录</div>
             </div>
         </div>
         <div class="login-wrap" v-show="status==2">
@@ -124,25 +124,25 @@ var shareBasePath='undefined';
                 <div class="form">
                     <div class="input">
                         <span>手机号</span>
-                        <input class="input1" v-model="telephone" type="tel">
+                        <input class="input1" maxlength="11" v-model="rtelephone" type="tel">
                     </div>
                     <div class="input">
                         <span>密码</span>
-                        <input class="input1" v-model="password" type="tel">
+                        <input class="input1" maxlength="10" v-model="rpassword" type="password">
                     </div>
                     <div class="input">
                             <span>再次密码</span>
-                            <input class="input1" v-model="againpassword" type="tel">
+                            <input class="input1" maxlength="10" v-model="ragainpassword" type="password">
                         </div>
                     <div class="input">
                         <span>验证码</span>
-                        <input class="input2" maxlength="4" type="tel">
-                        <img class="yzmimg" src="" alt="">
+                        <input class="input2" v-model="ryzm" maxlength="4" type="tel">
+                        <img class="yzmimg" :src="yzmimg" @click="changeYzm" alt="">
                     </div>
                     <div class="tip">已注册,<span @click="changestatus(1)">去登录</span></div>
                 </div>
                 <div class="btn">
-                    <div class="login-btn">注册</div>
+                    <div class="login-btn" @click="register">注册</div>
                 </div>
             </div>
 
@@ -156,8 +156,8 @@ var shareBasePath='undefined';
     </div>
      <!--底部引用的js资源-->
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
- <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-184e240623.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/login-992eff881e.main.js"></script>
+ <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-52dcb07444.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/login-e32384de83.main.js"></script>
 </body>
 
 </html>
