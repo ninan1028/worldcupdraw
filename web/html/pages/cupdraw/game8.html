@@ -90,7 +90,7 @@ var shareBasePath='undefined';
 </script>
 
 
-	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-33434fcbb6.css" />
+	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-511a7172a0.css" />
 </head>
 <body class="game8-body">
     <!--内容区域-->
@@ -98,16 +98,16 @@ var shareBasePath='undefined';
            <div class="title">猜中六支出线球队，获得抽奖资格</div>
 
            <article>
-               <div class="item"  flex="main:justify">
-                   <div class="name active">
-                       俄罗斯
+               <div class="item"  flex="main:justify"  v-for="(item,index) in list" :key="item.id"  >
+                   <div class="name" :class="{active:teamstatus[index].teamId==item.teamA}" @click="tap(index,item.teamA)" >
+                       {{item.teamAName}}
                    </div>
                    <div class="info">
-                       <p>J 喀山</p>
-                       <p><span>7月2日</span> 3:00</p>
+                       <p>{{item.matchCode.toUpperCase()}} {{item.matchAdress}}</p>
+                       <p><span>{{item.data}}</span> {{item.hour}}</p>
                    </div>
-                   <div class="name">
-                     克罗地亚
+                   <div class="name" :class="{active:teamstatus[index].teamId==item.teamB}" @click="tap(index,item.teamB)" >
+                    {{item.teamBName}}
                    </div>
                </div>
                <div class="item"  flex="main:justify">
@@ -131,7 +131,7 @@ var shareBasePath='undefined';
      <!--底部引用的js资源-->
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-52dcb07444.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/game16-509edb67f6.main.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/game8-af4ec7d5fd.main.js"></script>
 </body>
 
 </html>

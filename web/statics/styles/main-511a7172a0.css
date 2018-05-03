@@ -1857,22 +1857,23 @@ th {
   line-height: 1.28rem;
   text-align: center;
   color: #fff;
-  font-size: 17px;
+  font-size: 15px;
+  white-space: nowrap;
 }
 [data-dpr="2"] .main-html .game8-body .item .name {
-  font-size: 34px;
+  font-size: 30px;
 }
 [data-dpr="2.5"] .main-html .game8-body .item .name {
-  font-size: 43px;
+  font-size: 38px;
 }
 [data-dpr="2.75"] .main-html .game8-body .item .name {
-  font-size: 47px;
+  font-size: 41px;
 }
 [data-dpr="3"] .main-html .game8-body .item .name {
-  font-size: 51px;
+  font-size: 45px;
 }
 [data-dpr="4"] .main-html .game8-body .item .name {
-  font-size: 68px;
+  font-size: 60px;
 }
 .main-html .game8-body .item .name.active {
   -webkit-background-size: 100% 100%;

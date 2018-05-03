@@ -12,11 +12,11 @@
     <div id="app" v-cloak>
             <div class="list-wrap">
                <ul>
-                   <li class="active">小组赛</li>
-                   <li>1/8决赛</li>
-                   <li>1/4决赛</li>
-                   <li>半决赛</li>
-                   <li>决赛</li>
+                   <li :class="{active:code==1}" @click="linkdetail(1)" >小组赛</li>
+                   <li :class="{active:code==2}" @click="linkdetail(2)">1/8决赛</li>
+                   <li :class="{active:code==3}" @click="linkdetail(3)">1/4决赛</li>
+                   <li :class="{active:code==4}" @click="linkdetail(4)">半决赛</li>
+                   <li :class="{active:code==5}" @click="linkdetail(5)">决赛</li>
                </ul>
             </div>
     </div>   

@@ -415,6 +415,14 @@ var query = function () {
 	return query;
 }();
 
+
+
+var isLogin = function isLogin() {
+	//判断是否登录
+	var telephone = GB.cookie.getCookie('telephone');
+	return !!telephone;
+};
+
 /**
  * Created by wanglin on 2017/7/24.
  */
@@ -446,20 +454,41 @@ var getCurrentRounds = function getCurrentRounds() {
 var vue = new Vue({
 	el: '#app',
 	data: {
-		code: 0
+		code: 0,
+		link: {
+			'1': '/pages/cupDraw/game16.html',
+			'2': '/pages/cupDraw/game8.html',
+			'3': '/pages/cupDraw/game4.html',
+			'4': '/pages/cupDraw/game2.html',
+			'5': '/pages/cupDraw/game1.html'
+		}
 	},
 	mounted: function mounted() {
 		var _this = this;
 
+		if (!isLogin()) {
+			// 未登录 跳转到登录页 
+			location.href = htmlbasePath + '/pages/cupDraw/login.html';
+			return;
+		}
 		getCurrentRounds().then(function (res) {
 			if (res.status == 0) {
-				_this.code = res.data.code || [];
+				_this.code = res.data.code || 0;
 			} else {
 				if (res.msg) {
 					GB.utils.htoast(msg);
 				}
 			}
 		});
+	},
+
+	methods: {
+		linkdetail: function linkdetail(index) {
+			if (index == this.code) {
+				// code一致时进行跳转
+				location.href = htmlbasePath + this.link[index];
+			}
+		}
 	}
 });
 
