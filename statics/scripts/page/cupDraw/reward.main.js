@@ -443,17 +443,39 @@ var getWinningList = function getWinningList() {
 
 // 获取小组赛球队列表
 
+/*****展示中奖列表*/
 var vue = new Vue({
     el: '#app',
     data: {
-        list: []
+        list: [],
+        obj: {
+            '1': '小组赛抽奖获奖名单',
+            '2': '1/8赛抽奖获奖名单',
+            '3': '1/4赛抽奖获奖名单',
+            '4': '半决赛抽奖获奖名单',
+            '5': '决赛赛抽奖获奖名单'
+        }
     },
     mounted: function mounted() {
         var _this = this;
 
         getWinningList().then(function (res) {
             if (res.status == 0) {
-                _this.list = res.data || [];
+                if (res.data['1']) {
+                    _this.list.push(_this.formatObj('1', res.data['1']));
+                }
+                if (res.data['2']) {
+                    _this.list.push(_this.formatObj('2', res.data['2']));
+                }
+                if (res.data['3']) {
+                    _this.list.push(_this.formatObj('3', res.data['3']));
+                }
+                if (res.data['4']) {
+                    _this.list.push(_this.formatObj('4', res.data['4']));
+                }
+                if (res.data['5']) {
+                    _this.list.push(_this.formatObj('5', res.data['5']));
+                }
             } else {
                 if (res.msg) {
                     GB.utils.htoast(msg);
@@ -465,6 +487,13 @@ var vue = new Vue({
     methods: {
         goback: function goback() {
             history.go(-1);
+        },
+        formatObj: function formatObj(index, arr) {
+            var obj1 = {
+                name: this.obj[index],
+                value: arr
+            };
+            return obj1;
         }
     }
 });

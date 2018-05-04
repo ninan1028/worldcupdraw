@@ -402,6 +402,7 @@ GB.valid = {
 	}
 }
 
+
 GB.Ajax = {
 	ajax: function(param) {
 		var param = param || {};
@@ -433,7 +434,7 @@ GB.Ajax = {
 				return $.Deferred().reject(_data);
 			}
 		}, function(err) {
-			console.log(err);
+			//console.log(err);
 
 		})
 	},
@@ -443,15 +444,27 @@ GB.Ajax = {
 		var defaults = {
 			type: 'post',
 			data: {},
-			url: ''
+			url: '',
+			success:function(_data){
+               return _data;
+			},
+			error:function(xhr,textStatus,errorThrown){
+				console.log(xhr);
+				console.log(textStatus);
+               if(xhr.status==401){
+				   console.log('401');
+				   //location.href=htmlbasePath
+			   }
+			}
 		}
 		defaults = $.extend({}, defaults, param);
-		return $.ajax(defaults).then(function(_data) {
-			 return _data;
-		}, function(err) {
-			console.log(err);
+		// return $.ajax(defaults).then(function(_data) {
+		// 	 return _data;
+		// }, function(err) {
+		// 	return $.Deferred().reject(err);
+		// })
 
-		})
+		return $.ajax(defaults)
 	},
 	post: function(url, data) {
 		return GB.Ajax.ajax({ url: url, data: data, type: "post" });

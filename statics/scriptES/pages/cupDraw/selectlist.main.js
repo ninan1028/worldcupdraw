@@ -19,7 +19,7 @@ var vue= new Vue({
 	mounted(){
 		if(!isLogin()){
 		   // 未登录 跳转到登录页 
-		   location.href=htmlbasePath+'/pages/cupDraw/login.html';
+		   location.href=htmlbasePath+'/pages/cupdraw/login.html';
 		   return;
 		}
 		getCurrentRounds().then((res)=>{

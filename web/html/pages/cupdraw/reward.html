@@ -101,10 +101,11 @@ var shareBasePath='undefined';
                 <div class="title">中奖名单与微信公众号<br>
                         推送中奖信息同步</div>
               <div class="content">
-                      <div class="item">
-                          <div class="name">小组赛抽奖获奖名单</div>
+                <div class="nodata" style="text-align:center;" v-if="list.length==0">还未有中奖名单</div>
+                      <div class="item" v-for="item in list">
+                          <div class="name">{{item.name}}</div>
                           <ul>
-                              <li>1.18513917909</li>
+                              <li v-for="(item1,index) in item.value">{{index+1}}.{{item1.phone}}</li>
                           </ul>
                       </div>
               </div>
@@ -112,8 +113,8 @@ var shareBasePath='undefined';
     </div>   
      <!--底部引用的js资源-->
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
- <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-52dcb07444.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/reward-adfe4eedb8.main.js"></script>
+ <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-0cc7316c4a.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/reward-fcbc4a8b2a.main.js"></script>
 </body>
 
 </html>

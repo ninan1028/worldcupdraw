@@ -468,9 +468,19 @@ var vue = new Vue({
 
 		if (!isLogin()) {
 			// 未登录 跳转到登录页 
-			location.href = htmlbasePath + '/pages/cupDraw/login.html';
+			location.href = htmlbasePath + '/pages/cupdraw/login.html';
 			return;
 		}
+
+		$.ajax({
+			url: proxypath + '/activity/rounds/getCurrentRounds',
+			type: 'post',
+			error: function error(xhr) {
+				console.log('ajax');
+				console.log(xhr);
+			}
+		});
+
 		getCurrentRounds().then(function (res) {
 			if (res.status == 0) {
 				_this.code = res.data.code || 0;
