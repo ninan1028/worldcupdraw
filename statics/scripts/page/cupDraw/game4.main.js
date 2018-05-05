@@ -445,20 +445,20 @@ var getMatch = function getMatch(data) {
 
 // 获取小组赛球队列表
 
-var testlist = [{ "id": 97, "matchCode": "a", "roundCode": "2", "matchTime": "2018-06-22 15:00:00.0", "matchAdress": "aaa", "teamA": 33, "teamB": 37, "teamAName": "德国", "teamBName": "英格兰", "selectedTeam": null, "score": null, "userId": null, "createTime": 1524985333000, "modifyTime": 1524985333000 }, { "id": 98, "matchCode": "b", "roundCode": "2", "matchTime": "2018-06-23 15:00:00.0", "matchAdress": "bbb", "teamA": 34, "teamB": 45, "teamAName": "哥斯达黎加", "teamBName": "墨西哥", "selectedTeam": null, "score": null, "userId": null, "createTime": 1524985333000, "modifyTime": 1524985333000 }, { "id": 99, "matchCode": "c", "roundCode": "2", "matchTime": "2018-06-23 18:00:00.0", "matchAdress": "ccc", "teamA": 41, "teamB": 40, "teamAName": "阿根廷", "teamBName": "瑞 典", "selectedTeam": null, "score": null, "userId": null, "createTime": 1524985333000, "modifyTime": 1524985333000 }, { "id": 100, "matchCode": "d", "roundCode": "2", "matchTime": "2018-06-24 15:00:00.0", "matchAdress": "ddd", "teamA": 37, "teamB": 51, "teamAName": "英格兰", "teamBName": "美 国", "selectedTeam": null, "score": null, "userId": null, "createTime": 1524985333000, "modifyTime": 1524985333000 }, { "id": 101, "matchCode": "e", "roundCode": "2", "matchTime": "2018-06-25 12:00:00.0", "matchAdress": "eee", "teamA": 53, "teamB": 58, "teamAName": "巴西", "teamBName": "瑞 士", "selectedTeam": null, "score": null, "userId": null, "createTime": 1524985333000, "modifyTime": 1524985333000 }, { "id": 102, "matchCode": "f", "roundCode": "2", "matchTime": "2018-06-26 15:00:00.0", "matchAdress": "fff", "teamA": 49, "teamB": 61, "teamAName": "意大利", "teamBName": "西班牙", "selectedTeam": null, "score": null, "userId": null, "createTime": 1524985333000, "modifyTime": 1524985333000 }, { "id": 103, "matchCode": "g", "roundCode": "2", "matchTime": "2018-06-27 08:00:00.0", "matchAdress": "ggg", "teamA": 57, "teamB": 48, "teamAName": "法 国", "teamBName": "葡萄牙", "selectedTeam": null, "score": null, "userId": null, "createTime": 1524985333000, "modifyTime": 1524985333000 }, { "id": 104, "matchCode": "h", "roundCode": "2", "matchTime": "2018-06-27 15:00:00.0", "matchAdress": "hhh", "teamA": 62, "teamB": 38, "teamAName": "乌克兰", "teamBName": "巴拉圭", "selectedTeam": null, "score": null, "userId": null, "createTime": 1524985333000, "modifyTime": 1524985333000 }];
-
+//var testlist=[{"id":117,"matchCode":"i","roundCode":"3","matchTime":"2018-06-28 15:00:00.0","matchAdress":"iii","teamA":33,"teamB":45,"teamAName":"德国","teamBName":"墨西哥","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":118,"matchCode":"j","roundCode":"3","matchTime":"2018-06-29 15:00:00.0","matchAdress":"jjj","teamA":41,"teamB":37,"teamAName":"阿根廷","teamBName":"英格兰","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":119,"matchCode":"k","roundCode":"3","matchTime":"2018-06-30 18:00:00.0","matchAdress":"kkk","teamA":53,"teamB":49,"teamAName":"巴西","teamBName":"意大利","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":120,"matchCode":"l","roundCode":"3","matchTime":"2018-07-01 15:00:00.0","matchAdress":"lll","teamA":57,"teamB":38,"teamAName":"法 国","teamBName":"巴拉圭","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000}];
+var testlist = [];
 var vue = new Vue({
 	el: '#app',
 	data: {
 		list: [],
-		teamstatus: [{}, {}, {}, {}, {}, {}, {}, {}],
+		teamstatus: [{}, {}, {}, {}],
 		selectdata: []
 	},
 	mounted: function mounted() {
 		var _this = this;
 
 		var data = {
-			roundCode: 2
+			roundCode: 3
 		};
 		getMatch(data).then(function (res) {
 			if (res.status == 0) {
@@ -471,7 +471,7 @@ var vue = new Vue({
 			}
 		});
 
-		this.formatList();
+		//this.formatList();
 	},
 
 	methods: {
@@ -512,7 +512,7 @@ var vue = new Vue({
 			//拼接选中的数据
 			if (flag) {
 				var d = {
-					roundsCode: '2',
+					roundsCode: '3',
 					groupCode: groupCode,
 					teamId: teamid
 				};
@@ -524,8 +524,8 @@ var vue = new Vue({
 		},
 		submit: function submit() {
 			// 提交
-			if (this.selectdata.length < 6) {
-				GB.utils.htoast("请至少选择6支出现球队");
+			if (this.selectdata.length < 3) {
+				GB.utils.htoast("请至少选择3支出现球队");
 				return;
 			}
 
@@ -533,7 +533,7 @@ var vue = new Vue({
 				return item;
 			});
 			var data = {
-				roundsCode: 2,
+				roundsCode: 3,
 				jsonStr: JSON.stringify(arr)
 			};
 			votePromotion(data).then(function (res) {
@@ -551,6 +551,6 @@ var vue = new Vue({
 
 }());
 
-//# sourceMappingURL=game8.main.js.map
+//# sourceMappingURL=game4.main.js.map
 
-//# sourceMappingURL=game8.main.js.map
+//# sourceMappingURL=game4.main.js.map

@@ -12,38 +12,25 @@
     <!--内容区域-->
     <div id="app" v-cloak>
            <div class="title title2">1/4决赛猜中三支出线球队，获得抽奖资</div>
-
-               <div class="item"  flex="main:justify">
-                   <div class="name active">
-                       俄罗斯
-                   </div>
-                   <div class="info">
-                       <p>J 喀山</p>
-                       <p><span>7月2日</span> 3:00</p>
-                   </div>
-                   <div class="name">
-                     克罗地亚
-                   </div>
-               </div>
-               <div class="item"  flex="main:justify">
-                <div class="name">
-                    俄罗斯
-                </div>
-                <div class="info">
-                    <p>J 喀山</p>
-                    <p><span>7月2日</span> 3:00</p>
-                </div>
-                <div class="name">
-                  克罗地亚
-                </div>
+           <div class="item"  flex="main:justify"  v-for="(item,index) in list" :key="item.id"  >
+            <div class="name" :class="{active:teamstatus[index].teamId==item.teamA}" @click="tap(index,item.teamA)" >
+                {{item.teamAName}}
             </div>
+            <div class="info">
+                <p>{{item.matchCode.toUpperCase()}} {{item.matchAdress}}</p>
+                <p><span>{{item.data}}</span> {{item.hour}}</p>
+            </div>
+            <div class="name" :class="{active:teamstatus[index].teamId==item.teamB}" @click="tap(index,item.teamB)" >
+             {{item.teamBName}}
+            </div>
+        </div>
           <div class="btn-wrap">
-            <div class="submit-btn"></div>
+            <div class="submit-btn" @click="submit" ></div>
           </div>
 
     </div>   
     @@include('vue-footer.html')
-    <script type="text/javascript" src="<%=jsUrl%>/page/cupDraw/game16.main.js"></script>
+    <script type="text/javascript" src="<%=jsUrl%>/page/cupDraw/game4.main.js"></script>
 </body>
 
 </html>

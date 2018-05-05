@@ -434,56 +434,123 @@ var request = new query('/activity');
 // 比分投票
 
 // 晋级球队投票
-
-
-// 获取比赛列表
-
-
-// 获取小组赛球队列表
-var getTeamsFor32 = function getTeamsFor32(data) {
-    return request.post("team/getTeamsFor32", data);
+var votePromotion = function votePromotion(data) {
+    return request.post("vote/votePromotion", data);
 };
 
+// 获取比赛列表
+var getMatch = function getMatch(data) {
+    return request.post("match/getMatch", data);
+};
+
+// 获取小组赛球队列表
+
+//var testlist=[{"id":117,"matchCode":"i","roundCode":"3","matchTime":"2018-06-28 15:00:00.0","matchAdress":"iii","teamA":33,"teamB":45,"teamAName":"德国","teamBName":"墨西哥","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":118,"matchCode":"j","roundCode":"3","matchTime":"2018-06-29 15:00:00.0","matchAdress":"jjj","teamA":41,"teamB":37,"teamAName":"阿根廷","teamBName":"英格兰","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":119,"matchCode":"k","roundCode":"3","matchTime":"2018-06-30 18:00:00.0","matchAdress":"kkk","teamA":53,"teamB":49,"teamAName":"巴西","teamBName":"意大利","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":120,"matchCode":"l","roundCode":"3","matchTime":"2018-07-01 15:00:00.0","matchAdress":"lll","teamA":57,"teamB":38,"teamAName":"法 国","teamBName":"巴拉圭","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000}];
+var testlist = [];
 var vue = new Vue({
 	el: '#app',
 	data: {
 		list: [],
-		basePath: basePath,
-		selectstatus: [{}, {}, {}, {}, {}, {}, {}, {}] // 对球队选择的状态
+		teamstatus: [{}, {}, {}, {}],
+		selectdata: []
 	},
 	mounted: function mounted() {
 		var _this = this;
 
-		this.list = [{ "A": [{ "id": 33, "idList": null, "name": "德国", "group32": "A", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/germany.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1525007330000 }, { "id": 34, "idList": null, "name": "哥斯达黎加", "group32": "A", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/costarica.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1524985333000 }, { "id": 35, "idList": null, "name": "波 兰", "group32": "A", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/poland.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 36, "idList": null, "name": "厄瓜多尔", "group32": "A", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/ecuador.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }] }, { "B": [{ "id": 37, "idList": null, "name": "英格兰", "group32": "B", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/england.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1524987156000 }, { "id": 38, "idList": null, "name": "巴拉圭", "group32": "B", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/paraguay.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1524987156000 }, { "id": 39, "idList": null, "name": "特立尼达和多巴哥", "group32": "B", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/telinida.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 40, "idList": null, "name": "瑞 典", "group32": "B", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/sweden.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524985333000 }] }, { "C": [{ "id": 41, "idList": null, "name": "阿根廷", "group32": "C", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/argentina.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1525006039000 }, { "id": 42, "idList": null, "name": "科特迪瓦", "group32": "C", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/ketediwa.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 43, "idList": null, "name": "塞 黑", "group32": "C", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/saihei.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 44, "idList": null, "name": "荷 兰", "group32": "C", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/netherlands.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524984610000 }] }, { "D": [{ "id": 45, "idList": null, "name": "墨西哥", "group32": "D", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/mexico.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1524987156000 }, { "id": 46, "idList": null, "name": "伊 朗", "group32": "D", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/iran.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 47, "idList": null, "name": "安哥拉", "group32": "D", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/densinigra_soil.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 48, "idList": null, "name": "葡萄牙", "group32": "D", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/portugal.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524985333000 }] }, { "E": [{ "id": 49, "idList": null, "name": "意大利", "group32": "E", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/italy.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1524987156000 }, { "id": 50, "idList": null, "name": "加 纳", "group32": "E", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/ghana.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 51, "idList": null, "name": "美 国", "group32": "E", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/america.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524985333000 }, { "id": 52, "idList": null, "name": "捷 克", "group32": "E", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/czech.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }] }, { "F": [{ "id": 53, "idList": null, "name": "巴西", "group32": "F", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/brazil.jpg", "isSelected": 1, "createTime": 1524752931000, "modifyTime": 1525007330000 }, { "id": 54, "idList": null, "name": "克罗地亚", "group32": "F", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/croatia.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524984951000 }, { "id": 55, "idList": null, "name": "澳大利亚", "group32": "F", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/australia.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 56, "idList": null, "name": "日 本", "group32": "F", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/japan.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }] }, { "G": [{ "id": 57, "idList": null, "name": "法 国", "group32": "G", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/france.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1525006039000 }, { "id": 58, "idList": null, "name": "瑞 士", "group32": "G", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/switzerland.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524985333000 }, { "id": 59, "idList": null, "name": "韩 国", "group32": "G", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/korea.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 60, "idList": null, "name": "多哥", "group32": "G", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/togo.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }] }, { "H": [{ "id": 61, "idList": null, "name": "西班牙", "group32": "H", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/spain.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524985333000 }, { "id": 62, "idList": null, "name": "乌克兰", "group32": "H", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/ukraine.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524985333000 }, { "id": 63, "idList": null, "name": "突尼斯", "group32": "H", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/tunis.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }, { "id": 64, "idList": null, "name": "沙 特", "group32": "H", "sortNo32": null, "isIn16": null, "isIn8": null, "isIn4": null, "isIn2": null, "imagePath": "/assets/img/team/saudi_arabia.jpg", "isSelected": 0, "createTime": 1524752931000, "modifyTime": 1524752931000 }] }];
-		getTeamsFor32().then(function (res) {
+		var data = {
+			roundCode: 3
+		};
+		getMatch(data).then(function (res) {
 			if (res.status == 0) {
-				_this.list = res.data || [];
+				var list = res.data || [];
+				_this.list = _this.formatList(list);
 			} else {
 				if (res.msg) {
 					GB.utils.htoast(msg);
 				}
 			}
 		});
+
+		//this.formatList();
 	},
 
 	methods: {
-		selectteam: function selectteam(index, groupcode, id) {
-			//对球队进行选择
-			// 至少选出8支球队
-
-			//首先判断一个组内最多选中二支球队
-			if (Object.keys(this.selectstatus[index]).length == 2) {}
-
-			if (this.selectstatus[index][id]) {
-				//如果存在值 在原有值上进行处理
-				//this.$set(this.selectstatus,index,Object.assign(this.selectstatus,{id:}))
+		formatList: function formatList(list) {
+			var list = list || testlist;
+			list.forEach(function (item) {
+				var time = new Date(item.matchTime.replace(/-/g, '/'));
+				var data = time.getMonth() + 1 + '月' + time.getDate() + '日';
+				var getMinutes = time.getMinutes() ? time.getMinutes() : '00';
+				var hour = time.getHours() + ':' + getMinutes;
+				item.data = data;
+				item.hour = hour;
+			});
+			this.list = list;
+		},
+		tap: function tap(index, teamid) {
+			var groupCode = this.list[index].matchCode;
+			//对原有数据进行判断是否选中了
+			var statusteamId = this.teamstatus[index].teamId;
+			if (statusteamId == teamid) {
+				this.$set(this.teamstatus, index, { teamId: '' });
+			} else {
+				this.$set(this.teamstatus, index, { teamId: teamid });
 			}
+			var flag = true;
+			this.selectdata.forEach(function (item) {
+				if (item.groupCode == groupCode) {
+					//有选中的组
+					if (item.teamId == teamid) {
+						item.teamId = '';
+					} else {
+						item.teamId = teamid;
+					}
+					flag = false;
+					return;
+				}
+			});
+			//拼接选中的数据
+			if (flag) {
+				var d = {
+					roundsCode: '3',
+					groupCode: groupCode,
+					teamId: teamid
+				};
+				this.selectdata.push(d);
+			}
+			this.selectdata = this.selectdata.filter(function (item) {
+				return !!item.teamId;
+			});
+		},
+		submit: function submit() {
+			// 提交
+			if (this.selectdata.length < 3) {
+				GB.utils.htoast("请至少选择3支出现球队");
+				return;
+			}
+
+			var arr = this.selectdata.map(function (item) {
+				return item;
+			});
+			var data = {
+				roundsCode: 3,
+				jsonStr: JSON.stringify(arr)
+			};
+			votePromotion(data).then(function (res) {
+				if (res.status == 0) {
+					location.href = htmlbasePath + '/pages/cupdraw/success.html';
+				} else {
+					if (res.msg) {
+						GB.utils.htoast(msg);
+					}
+				}
+			});
 		}
 	}
 });
 
 }());
 
-//# sourceMappingURL=game16.main.js.map
+//# sourceMappingURL=game4.main.js.map
 
-//# sourceMappingURL=game16.main.js.map
+//# sourceMappingURL=game4.main.js.map
