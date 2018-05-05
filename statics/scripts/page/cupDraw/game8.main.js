@@ -434,7 +434,9 @@ var request = new query('/activity');
 // 比分投票
 
 // 晋级球队投票
-
+var votePromotion = function votePromotion(data) {
+    return request.post("vote/votePromotion", data);
+};
 
 // 获取比赛列表
 var getMatch = function getMatch(data) {
@@ -486,18 +488,13 @@ var vue = new Vue({
 			this.list = list;
 		},
 		tap: function tap(index, teamid) {
-			if (this.selectdata.length == 6) {
-				GB.utils.htoast("最多选择六支队伍");
-				return;
-			}
 			var groupCode = this.list[index].matchCode;
 			//对原有数据进行判断是否选中了
-
 			var statusteamId = this.teamstatus[index].teamId;
 			if (statusteamId == teamid) {
-				this.teamstatus[index].teamId = '';
+				this.$set(this.teamstatus, index, { teamId: '' });
 			} else {
-				this.teamstatus[index].teamId = teamid;
+				this.$set(this.teamstatus, index, { teamId: teamid });
 			}
 			var flag = true;
 			this.selectdata.forEach(function (item) {
@@ -524,12 +521,32 @@ var vue = new Vue({
 			this.selectdata = this.selectdata.filter(function (item) {
 				return !!item.teamId;
 			});
+		},
+		submit: function submit() {
+			// 提交
+			if (this.selectdata.length < 6) {
+				GB.utils.htoast("请至少选择6支出现球队");
+				return;
+			}
+
+			var arr = this.selectdata.map(function (item) {
+				return item;
+			});
+			var data = {
+				roundsCode: 2,
+				jsonStr: JSON.stringify(arr)
+			};
+			votePromotion(data).then(function (res) {
+				if (res.status == 0) {
+					location.href = htmlbasePath + '/pages/cupdraw/success.html';
+				} else {
+					if (res.msg) {
+						GB.utils.htoast(msg);
+					}
+				}
+			});
 		}
 	}
 });
 
 }());
-
-//# sourceMappingURL=game8.main.js.map
-
-//# sourceMappingURL=game8.main.js.map

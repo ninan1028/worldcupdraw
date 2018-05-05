@@ -9,17 +9,17 @@ var vue= new Vue({
 	data:{
 		code:0,
 		link:{
-			'1':'/pages/cupDraw/game16.html',
-			'2':'/pages/cupDraw/game8.html',
-			'3':'/pages/cupDraw/game4.html',
-			'4':'/pages/cupDraw/game2.html',
-			'5':'/pages/cupDraw/game1.html'
+			'1':'/pages/cupdraw/game16.html',
+			'2':'/pages/cupdraw/game8.html',
+			'3':'/pages/cupdraw/game4.html',
+			'4':'/pages/cupdraw/game2.html',
+			'5':'/pages/cupdraw/game1.html'
 		}
 	},
 	mounted(){
 		if(!isLogin()){
 		   // 未登录 跳转到登录页 
-		   location.href=htmlbasePath+'/pages/cupDraw/login.html';
+		   location.href=htmlbasePath+'/pages/cupdraw/login.html';
 		   return;
 		}
 		getCurrentRounds().then((res)=>{

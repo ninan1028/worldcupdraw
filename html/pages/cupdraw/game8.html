@@ -2,7 +2,8 @@
 <html class="main-html  game-html">
 <head>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8">
 	<title>风驰电掣世界杯</title>
 	@@include('meta.html')
 	<link rel="stylesheet" href="<%=cssUrl%>/main.css" />
@@ -25,23 +26,10 @@
                     {{item.teamBName}}
                    </div>
                </div>
-               <div class="item"  flex="main:justify">
-                <div class="name">
-                    俄罗斯
-                </div>
-                <div class="info">
-                    <p>J 喀山</p>
-                    <p><span>7月2日</span> 3:00</p>
-                </div>
-                <div class="name">
-                  克罗地亚
-                </div>
-            </div>
            </article>
           <div class="btn-wrap">
-            <div class="submit-btn"></div>
+            <div class="submit-btn" @click="submit" ></div>
           </div>
-
     </div>   
     @@include('vue-footer.html')
     <script type="text/javascript" src="<%=jsUrl%>/page/cupDraw/game8.main.js"></script>

@@ -526,7 +526,7 @@ var vue = new Vue({
                     // 注册成功
                     GB.cookie.addCookie('telephone', data.phone);
                     // 调到主页面
-                    location.href = htmlbasepath + '/index.html';
+                    location.href = htmlbasePath + '/index.html';
                 } else {
                     if (res.msg) {
                         GB.utils.htoast(res.msg);
@@ -538,7 +538,3 @@ var vue = new Vue({
 });
 
 }());
-
-//# sourceMappingURL=login.main.js.map
-
-//# sourceMappingURL=login.main.js.map

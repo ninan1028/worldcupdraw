@@ -465,7 +465,3 @@ var vue = new Vue({
 });
 
 }());
-
-//# sourceMappingURL=game16.main.js.map
-
-//# sourceMappingURL=game16.main.js.map
