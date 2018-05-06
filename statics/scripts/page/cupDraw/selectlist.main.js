@@ -459,8 +459,8 @@ var vue = new Vue({
 			'1': '/pages/cupdraw/game16.html',
 			'2': '/pages/cupdraw/game8.html',
 			'3': '/pages/cupdraw/game4.html',
-			'4': '/pages/cupdraw/game2.html',
-			'5': '/pages/cupdraw/game1.html'
+			'4': '/pages/cupdraw/game2.html?roundsCode=4',
+			'5': '/pages/cupdraw/game2.html?roundsCode=5'
 		}
 	},
 	mounted: function mounted() {
@@ -468,7 +468,7 @@ var vue = new Vue({
 
 		if (!isLogin()) {
 			// 未登录 跳转到登录页 
-			location.href = htmlbasePath + '/pages/cupdraw/login.html';
+			location.href = basePath;
 			return;
 		}
 		getCurrentRounds().then(function (res) {
@@ -476,7 +476,7 @@ var vue = new Vue({
 				_this.code = res.data.code || 0;
 			} else {
 				if (res.msg) {
-					GB.utils.htoast(msg);
+					GB.utils.htoast(res.msg);
 				}
 			}
 		});
@@ -493,7 +493,3 @@ var vue = new Vue({
 });
 
 }());
-
-//# sourceMappingURL=selectlist.main.js.map
-
-//# sourceMappingURL=selectlist.main.js.map

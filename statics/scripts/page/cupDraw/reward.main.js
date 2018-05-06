@@ -478,7 +478,7 @@ var vue = new Vue({
                 }
             } else {
                 if (res.msg) {
-                    GB.utils.htoast(msg);
+                    GB.utils.htoast(res.msg);
                 }
             }
         });
@@ -499,7 +499,3 @@ var vue = new Vue({
 });
 
 }());
-
-//# sourceMappingURL=reward.main.js.map
-
-//# sourceMappingURL=reward.main.js.map

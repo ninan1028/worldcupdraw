@@ -6,6 +6,7 @@ var testlist=[];
 var vue= new Vue({
 	el:'#app',
 	data:{
+		isSelected: false,
 	  list:[],
 	  teamstatus:[{},{},{},{}],
 	  selectdata:[]
@@ -16,11 +17,12 @@ var vue= new Vue({
 		}
 		getMatch(data).then((res)=>{
 			if(res.status==0){
-				var list=res.data||[];
-				this.list=this.formatList(list)
+				var list=res.data.list||[];
+				this.list=this.formatList(list);
+				this.isSelected=res.data.isSelected;
 			  } else{
 				  if(res.msg){
-					  GB.utils.htoast(msg);
+					GB.utils.htoast(res.msg);
 				  }
 			  }
 		})
@@ -38,7 +40,7 @@ var vue= new Vue({
 			   item.data=data;
 			   item.hour=hour;
 			})
-			this.list=list;
+			return list;
 		},
 		tap(index,teamid){		  
 		   var groupCode=this.list[index].matchCode
@@ -67,7 +69,8 @@ var vue= new Vue({
 			var d={
 				roundsCode:'3',
 				groupCode:groupCode,
-				teamId:teamid
+				teamId:teamid,
+				matchId:this.list[index]['id']
 			   }
 			   this.selectdata.push(d);
 		   }
@@ -92,7 +95,7 @@ var vue= new Vue({
 					location.href=htmlbasePath+'/pages/cupdraw/success.html';
 				  } else{
 					  if(res.msg){
-						  GB.utils.htoast(msg);
+						  GB.utils.htoast(res.msg);
 					  }
 				  }
 			})

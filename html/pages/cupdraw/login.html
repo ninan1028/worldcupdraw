@@ -24,7 +24,7 @@
                     <span>密码</span>
                     <input class="input1" v-model="password" maxlength="10"  type="password">
                 </div>
-                <div class="input">
+                <div class="input" v-show="logincount>2" >
                     <span>验证码</span>
                     <input class="input2" v-model="yzm" maxlength="4" type="tel">
                     <img class="yzmimg" :src="yzmimg" @click="changeYzm" alt="">
@@ -50,7 +50,7 @@
                             <span>再次密码</span>
                             <input class="input1" maxlength="10" v-model="ragainpassword" type="password">
                         </div>
-                    <div class="input">
+                    <div class="input" >
                         <span>验证码</span>
                         <input class="input2" v-model="ryzm" maxlength="4" type="tel">
                         <img class="yzmimg" :src="yzmimg" @click="changeYzm" alt="">

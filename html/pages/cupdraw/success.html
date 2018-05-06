@@ -9,19 +9,22 @@
 	<link rel="stylesheet" href="<%=cssUrl%>/main.css" />
 </head>
 <body class="success-body">
-	<!--内容区域-->
-     <div class="goback"></div>
+  <!--内容区域-->
+  <div id="app" v-cloak>
+     <div class="goback" @click="goback" ></div>
       <div class="success-wrap">
           <div class="title">竞猜成功</div>
          <div class="content">
-            恭喜你竞猜成功，小组赛全部结束，中奖名单与微信公众号推送中奖信息同步。       
+            恭喜你竞猜成功，{{text[code]}}全部结束，中奖名单与微信公众号推送中奖信息同步。       
         </div>
         <div class="btn">
-          <div class="share-btn"></div>
-          <div class="floww-btn"></div>
+          <div class="share-btn" @click="share"></div>
+          <div class="floww-btn" @click="flow"></div>
         </div>
       </div>
-	@@include('vue-footer.html')
+    </div>
+  @@include('vue-footer.html')
+  <script type="text/javascript" src="<%=jsUrl%>/page/cupDraw/success.main.js"></script>
 </body>
 
 </html>

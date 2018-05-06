@@ -12,19 +12,28 @@
     <!--内容区域-->
     <div id="app" v-cloak>
            <div class="title">小组赛猜中八支出线球队，获得抽奖资格</div>
-           <div class="item"  v-for="(item,index) in list"  >
-            <template v-for="(value,key) in item">
+           <div class="item"  v-for="(item,index) in list" >
+               <div v-if="!isSelected" v-for="(value,key) in item">
                     <div class="group-name">{{key}}组</div>
                     <div class="group-list"  flex="main:justify">
-                        <div v-for="item1 in value" :class="{active:selectstatus[index][item1.id]}"  @click="selectteam(index,item1.group32,item1.id)"  >
+                        <div v-for="item1 in value" :class="{active:selectstatus[index][item1.id]==1}"  @click="selectteam(index,item1.group32,item1.id)"  >
                             <img :src="basePath+item1.imagePath" alt="">
                             <p>{{item1.name}}</p>
                         </div>
                     </div>
-            </template>        
+                </div>  
+                <div v-if="isSelected" v-for="(value,key) in item">
+                    <div class="group-name">{{key}}组</div>
+                    <div class="group-list"  flex="main:justify">
+                        <div v-for="item1 in value" :class="{active:item1.isSelected==1}"   >
+                            <img :src="basePath+item1.imagePath" alt="">
+                            <p>{{item1.name}}</p>
+                        </div>
+                    </div>
+                </div>            
            </div>
           <div class="btn-wrap">
-            <div class="submit-btn"></div>
+            <div class="submit-btn" v-show="!isSelected" @click="submit"></div>
           </div>
 
     </div>   

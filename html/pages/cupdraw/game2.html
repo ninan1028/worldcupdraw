@@ -11,59 +11,67 @@
 <body class="game2-body">
     <!--内容区域-->
     <div id="app" v-cloak>
-           <div class="title3"><span>半决赛</span></div>
-           <div class="des">
-               <p>半决赛猜中两场比赛比分，获得抽奖资格</p>
-               <p>(比分竞猜结果不包含加时赛与点球结果)</p>
-           </div>
+        <template v-if="roundsCode==4">
+                <div class="title3"><span>半决赛</span></div>
+                <div class="des">
+                    <p>半决赛猜中两场比赛比分，获得抽奖资格</p>
+                    <p>(比分竞猜结果不包含加时赛与点球结果)</p>
+                </div>
+        </template>
+        <template v-if="roundsCode==5">
+                <div class="title3"><span>决赛</span></div>
+                <div class="des">
+                    <p>决赛猜中比赛比分，获得抽奖资格</p>
+                    <p>(比分竞猜结果不包含加时赛与点球结果)</p>
+                </div>
+        </template>
+          
 
-           <div class="line">
-              <div class="county-item" flex="main:justify">
+           <div class="line" v-if="!isSelected" v-for="item in list">
+              <div class="county-item" flex="main:justify" >
                 <div>
-                    <img src="<%=imgUrl%>/county-img1.png" alt="">
+                    <img :src="basePath+item.teamAImage" alt="">
                 </div>
                 <div class="vs"></div>
                 <div>
-                    <img src="<%=imgUrl%>/county-img1.png" alt="">
+                    <img :src="basePath+item.teamBImage" alt="">
                 </div>
               </div>
               <div class="input-item" flex="main:justify">
                 <div>
-                    <input type="tel"  maxlength="2" >
+                    <input type="tel" v-model="item.scoreA"  maxlength="2" >
                 </div>
                 <div>
-                    <input type="tel"  maxlength="2" >
+                    <input type="tel" v-model="item.scoreB"  maxlength="2" >
                 </div>
               </div>
-           </div>
-           <div class="line">
-            <div class="county-item" flex="main:justify">
+           </div>     
+           <div class="line" v-if="isSelected" v-for="item in list">
+            <div class="county-item" flex="main:justify" >
               <div>
-                  <img src="<%=imgUrl%>/county-img1.png" alt="">
+                  <img :src="basePath+item.teamAImage" alt="">
               </div>
               <div class="vs"></div>
               <div>
-                  <img src="<%=imgUrl%>/county-img1.png" alt="">
+                  <img :src="basePath+item.teamBImage" alt="">
               </div>
             </div>
             <div class="input-item" flex="main:justify">
               <div>
-                  <input type="tel"  maxlength="2" >
+                  <input type="tel" :value="item.scoreA" disabled  maxlength="2" >
               </div>
               <div>
-                  <input type="tel"  maxlength="2" >
+                  <input type="tel" :value="item.scoreB"  disabled maxlength="2" >
               </div>
             </div>
-         </div>
-
-             
+         </div>         
           <div class="btn-wrap">
-            <div class="submit-btn"></div>
+            <div class="submit-btn" v-show="!isSelected" @click="submit" ></div>
           </div>
 
     </div>   
     @@include('vue-footer.html')
-    <script type="text/javascript" src="<%=jsUrl%>/page/cupDraw/game16.main.js"></script>
+    <script type="text/javascript" src="<%=jsUrl%>/page/cupDraw/game2.main.js"></script>
 </body>
 
 </html>

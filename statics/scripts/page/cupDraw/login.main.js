@@ -456,7 +456,7 @@ var vue = new Vue({
         rpassword: '',
         ragainpassword: '',
         ryzm: '',
-        logincount: 0,
+        logincount: 0, //登录出现三次错误,需要输入验证码
         yzmimg: ''
     },
     mounted: function mounted() {
@@ -472,6 +472,8 @@ var vue = new Vue({
             this.yzmimg = proxypath + '/activity/getVerificationCode?random=' + Math.random();
         },
         login: function login$$1() {
+            var _this = this;
+
             // 登录操作
 
             // 验证
@@ -480,6 +482,13 @@ var vue = new Vue({
             }
             if (!GB.valid.checkPassword(this.password)) {
                 return false;
+            }
+            if (this.logincount > 2) {
+                //次数大于2 需要输入验证码
+
+                if (!GB.valid.checkYzm(this.yzm)) {
+                    return false;
+                }
             }
             var data = {
                 phone: this.telephone,
@@ -493,6 +502,7 @@ var vue = new Vue({
                     // 调到主页面
                     location.href = htmlbasePath + '/index.html';
                 } else {
+                    _this.logincount++;
                     if (res.msg) {
                         GB.utils.htoast(res.msg);
                     }
@@ -538,7 +548,3 @@ var vue = new Vue({
 });
 
 }());
-
-//# sourceMappingURL=login.main.js.map
-
-//# sourceMappingURL=login.main.js.map

@@ -450,6 +450,11 @@ GB.Ajax = {
 			 return _data;
 		}, function(err) {
 			console.log(err);
+			if(err.status==401){
+				//页面未登录 跳转到登录页
+				GB.cookie.delCookie('telephone');
+				location.href=basePath;
+			}
 
 		})
 	},

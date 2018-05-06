@@ -34,7 +34,7 @@ var vue= new Vue({
              }
            } else{
                if(res.msg){
-                   GB.utils.htoast(msg);
+                GB.utils.htoast(res.msg);
                }
            }
         })

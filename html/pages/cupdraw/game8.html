@@ -14,7 +14,7 @@
            <div class="title">猜中六支出线球队，获得抽奖资格</div>
 
            <article>
-               <div class="item"  flex="main:justify"  v-for="(item,index) in list" :key="item.id"  >
+               <div class="item" v-if="!isSelected"  flex="main:justify"  v-for="(item,index) in list" :key="item.id"  >
                    <div class="name" :class="{active:teamstatus[index].teamId==item.teamA}" @click="tap(index,item.teamA)" >
                        {{item.teamAName}}
                    </div>
@@ -26,9 +26,22 @@
                     {{item.teamBName}}
                    </div>
                </div>
+               <!-- 选中 -->
+               <div class="item" v-if="isSelected"  flex="main:justify"  v-for="(item,index) in list" :key="item.id"  >
+                <div class="name" :class="{active:item.selectedTeam==item.teamA}" >
+                    {{item.teamAName}}
+                </div>
+                <div class="info">
+                    <p>{{item.matchCode.toUpperCase()}} {{item.matchAdress}}</p>
+                    <p><span>{{item.data}}</span> {{item.hour}}</p>
+                </div>
+                <div class="name" :class="{active:item.selectedTeam==item.teamB}" >
+                 {{item.teamBName}}
+                </div>
+            </div>
            </article>
           <div class="btn-wrap">
-            <div class="submit-btn" @click="submit" ></div>
+            <div class="submit-btn" v-show="!isSelected" @click="submit" ></div>
           </div>
     </div>   
     @@include('vue-footer.html')

@@ -14,7 +14,7 @@ var vue= new Vue({
       rpassword:'',
       ragainpassword:'',
       ryzm:'',
-      logincount:0,
+      logincount:0,//登录出现三次错误,需要输入验证码
       yzmimg:''
 	},
 	mounted(){
@@ -38,6 +38,13 @@ var vue= new Vue({
             if(!GB.valid.checkPassword(this.password)){
                 return false;
             }
+            if(this.logincount>2){
+                //次数大于2 需要输入验证码
+
+                if(!GB.valid.checkYzm(this.yzm)){
+                    return false;
+                }
+            }
             var data={
                 phone:this.telephone,
                 password:this.password,
@@ -50,6 +57,7 @@ var vue= new Vue({
                     // 调到主页面
                     location.href=htmlbasePath+'/index.html';
                 } else{
+                    this.logincount++;
                     if(res.msg){
                         GB.utils.htoast(res.msg);
                     }
