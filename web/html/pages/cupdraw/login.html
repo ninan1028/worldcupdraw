@@ -111,7 +111,7 @@ var shareBasePath='undefined';
                 </div>
                 <div class="input" v-show="logincount>2" >
                     <span>验证码</span>
-                    <input class="input2" v-model="yzm" maxlength="4" type="tel">
+                    <input class="input2" v-model="yzm" maxlength="4" type="text">
                     <img class="yzmimg" :src="yzmimg" @click="changeYzm" alt="">
                 </div>
                 <div class="tip">还未注册,<span @click="changestatus(2)">请注册</span></div>
@@ -137,7 +137,7 @@ var shareBasePath='undefined';
                         </div>
                     <div class="input" >
                         <span>验证码</span>
-                        <input class="input2" v-model="ryzm" maxlength="4" type="tel">
+                        <input class="input2" v-model="ryzm" maxlength="4" type="text">
                         <img class="yzmimg" :src="yzmimg" @click="changeYzm" alt="">
                     </div>
                     <div class="tip">已注册,<span @click="changestatus(1)">去登录</span></div>
