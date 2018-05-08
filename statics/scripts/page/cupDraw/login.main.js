@@ -418,15 +418,13 @@ var query = function () {
 /**
  * Created by wanglin on 2017/7/24.
  */
-var request = new query('/activity');
-
 //用户注册
 var register = function register(data) {
-    return request.post("/user/register", data);
+    return _post("/user/register", data);
 };
 // 用户登录
 var login = function login(data) {
-    return request.post("/user/login", data);
+    return _post("/user/login", data);
 };
 
 //查询中奖者名单
@@ -460,7 +458,7 @@ var vue = new Vue({
         yzmimg: ''
     },
     mounted: function mounted() {
-        this.yzmimg = proxypath + '/activity/getVerificationCode';
+        this.yzmimg = proxypath + '/getVerificationCode';
     },
 
     methods: {
@@ -469,7 +467,7 @@ var vue = new Vue({
             this.changeYzm();
         },
         changeYzm: function changeYzm() {
-            this.yzmimg = proxypath + '/activity/getVerificationCode?random=' + Math.random();
+            this.yzmimg = proxypath + '/getVerificationCode?random=' + Math.random();
         },
         login: function login$$1() {
             var _this = this;

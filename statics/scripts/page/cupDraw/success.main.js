@@ -426,8 +426,6 @@ var isLogin = function isLogin() {
 /**
  * Created by wanglin on 2017/7/24.
  */
-var request = new query('/activity');
-
 //用户注册
 
 // 用户登录
@@ -438,7 +436,7 @@ var request = new query('/activity');
 
 //查询当前轮次
 var getCurrentRounds = function getCurrentRounds() {
-    return request.post("rounds/getCurrentRounds");
+    return _post("rounds/getCurrentRounds");
 };
 
 // 比分投票

@@ -418,8 +418,6 @@ var query = function () {
 /**
  * Created by wanglin on 2017/7/24.
  */
-var request = new query('/activity');
-
 //用户注册
 
 // 用户登录
@@ -427,7 +425,7 @@ var request = new query('/activity');
 
 //查询中奖者名单
 var getWinningList = function getWinningList() {
-    return request.post("prizeDraw/getWinningList");
+    return _post("prizeDraw/getWinningList");
 };
 
 //查询当前轮次

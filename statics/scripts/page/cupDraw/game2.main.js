@@ -418,8 +418,6 @@ var query = function () {
 /**
  * Created by wanglin on 2017/7/24.
  */
-var request = new query('/activity');
-
 //用户注册
 
 // 用户登录
@@ -433,7 +431,7 @@ var request = new query('/activity');
 
 // 比分投票
 var voteScore = function voteScore(data) {
-    return request.post("vote/voteScore", data);
+    return _post("vote/voteScore", data);
 };
 // 晋级球队投票
 

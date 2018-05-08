@@ -18,7 +18,7 @@ var vue= new Vue({
       yzmimg:''
 	},
 	mounted(){
-		this.yzmimg=proxypath+'/activity/getVerificationCode'
+		this.yzmimg=proxypath+'/getVerificationCode'
     },
     methods:{
         changestatus(index){
@@ -26,7 +26,7 @@ var vue= new Vue({
                this.changeYzm();
         },
         changeYzm(){
-            this.yzmimg=proxypath+'/activity/getVerificationCode?random='+Math.random();
+            this.yzmimg=proxypath+'/getVerificationCode?random='+Math.random();
         },
         login(){
             // 登录操作

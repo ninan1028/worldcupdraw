@@ -418,8 +418,6 @@ var query = function () {
 /**
  * Created by wanglin on 2017/7/24.
  */
-var request = new query('/activity');
-
 //用户注册
 
 // 用户登录
@@ -435,7 +433,7 @@ var request = new query('/activity');
 
 // 晋级球队投票
 var votePromotion = function votePromotion(data) {
-    return request.post("vote/votePromotion", data);
+    return _post("vote/votePromotion", data);
 };
 
 // 获取比赛列表
