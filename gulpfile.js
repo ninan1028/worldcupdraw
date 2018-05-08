@@ -71,12 +71,12 @@ var config = {
         shareBasePath: 'https://dev.huangjinqianbao.com/GBankerWebWapOld/'
     },
     online: {
-        js: 'http://39.105.57.97:8080/activity/statics/scripts',
-        css: 'http://39.105.57.97:8080/activity/statics/styles',
-        img: 'http://39.105.57.97:8080/activity/statics/images',
-        basepath: 'http://39.105.57.97:8080/activity',
-        htmlbasepath: 'http://39.105.57.97:8080/activity/html',
-        proxypath: "http://39.105.57.97:8080"
+        js: 'http://39.106.50.228:8080/activity/statics/scripts',
+        css: 'http://39.106.50.228:8080/activity/statics/styles',
+        img: 'http://39.106.50.228:8080/activity/statics/images',
+        basepath: 'http://39.106.50.228:8080/activity',
+        htmlbasepath: 'http://39.106.50.228:8080/activity/html',
+        proxypath: "http://39.106.50.228:8080"
     }
 }
 var knownOptions = {
