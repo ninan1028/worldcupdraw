@@ -34,10 +34,10 @@ export const votePromotion = (data) => {
 
 // 获取比赛列表
 export const getMatch = (data) => {
-    return request.post("match/getMatch",data);
+    return post("match/getMatch",data);
 }
 
 // 获取小组赛球队列表
 export const getTeamsFor32 = (data) => {
-    return request.post("team/getTeamsFor32",data);
+    return post("team/getTeamsFor32",data);
 }

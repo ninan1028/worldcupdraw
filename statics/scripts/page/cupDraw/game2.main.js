@@ -353,7 +353,7 @@ var promise = createCommonjsModule(function (module, exports) {
 
 var Promise$1 = promise.Promise;
 
-function request$1(url, data, type) {
+function request(url, data, type) {
 	var data = data || {};
 	var url = url || '';
 	var type = type || 'post';
@@ -379,10 +379,10 @@ function request$1(url, data, type) {
 }
 
 var _post = function _post(url, data) {
-	return request$1(url, data, 'post');
+	return request(url, data, 'post');
 };
 var _get = function _get(url, data) {
-	return request$1(url, data, 'get');
+	return request(url, data, 'get');
 };
 
 var query = function () {
@@ -438,7 +438,7 @@ var voteScore = function voteScore(data) {
 
 // 获取比赛列表
 var getMatch = function getMatch(data) {
-    return request.post("match/getMatch", data);
+    return _post("match/getMatch", data);
 };
 
 // 获取小组赛球队列表

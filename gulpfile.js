@@ -71,12 +71,12 @@ var config = {
         shareBasePath: 'https://dev.huangjinqianbao.com/GBankerWebWapOld/'
     },
     online: {
-        js: 'http://worldcup.jcgame.net/statics/scripts',
-        css: 'http://worldcup.jcgame.net/statics/styles',
-        img: 'http://worldcup.jcgame.net/statics/images',
-        basepath: 'http://worldcup.jcgame.net',
-        htmlbasepath: 'http://worldcup.jcgame.net/html',
-        proxypath: "http://worldcup.jcgame.net"
+        js: 'http://worldcup.jcgame.net/activity/statics/scripts',
+        css: 'http://worldcup.jcgame.net/activity/statics/styles',
+        img: 'http://worldcup.jcgame.net/activity/statics/images',
+        basepath: 'http://worldcup.jcgame.net/activity',
+        htmlbasepath: 'http://worldcup.jcgame.net/activity/html',
+        proxypath: "http://worldcup.jcgame.net/activity"
     }
 }
 var knownOptions = {
