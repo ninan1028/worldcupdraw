@@ -20,7 +20,7 @@ var vue= new Vue({
 	mounted(){
 		if(!isLogin()){
 		   // 未登录 跳转到登录页 
-		   location.href=basePath;
+		   //location.href=basePath;
 		   return;
 		}
 		getCurrentRounds().then((res)=>{

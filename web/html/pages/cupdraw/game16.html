@@ -6,10 +6,10 @@
     <meta charset="utf-8">
 	<title>风驰电掣世界杯</title>
 	<script>
-var basePath = 'http://worldcup.jcgame.net/activity';
-var htmlbasePath='http://worldcup.jcgame.net/activity/html';
-var imgUrl = 'http://worldcup.jcgame.net/activity/statics/images';
-var proxypath='http://worldcup.jcgame.net/activity'; // 做黄金红包 html生成图片 图片不能跨域
+var basePath = 'http://localhost:8080';
+var htmlbasePath='http://localhost:8080/html';
+var imgUrl = 'http://localhost:8080/statics/images';
+var proxypath='http://localhost:8002'; // 做黄金红包 html生成图片 图片不能跨域
 var shareBasePath='undefined';
 !function(N, M) {
     function L() {
@@ -91,12 +91,15 @@ var shareBasePath='undefined';
 </script>
 
 
-	<link rel="stylesheet" href="http://worldcup.jcgame.net/activity/statics/styles/main-1f641e69f9.css" />
+	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-1787ac2ac9.css" />
 </head>
 <body class="game16-body">
     <!--内容区域-->
     <div id="app" v-cloak>
-           <div class="title">小组赛猜中八支出线球队，获得抽奖资格</div>
+            <div class="goback" @click="goback" ></div>
+           <div class="title">
+               <div class="icon-title16"></div>
+           </div>
            <div class="item"  v-for="(item,index) in list" >
                <div v-if="!isSelected" v-for="(value,key) in item">
                     <div class="group-name">{{key}}组</div>
@@ -123,9 +126,9 @@ var shareBasePath='undefined';
 
     </div>   
      <!--底部引用的js资源-->
- <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/lib/vue/vue-728134de0a.js"></script>
- <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/common-jquery-13336e761c.js"></script>
-    <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/page/cupDraw/game16-a9339d94cf.main.js"></script>
+ <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
+ <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-7a4b1799c6.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/game16-7d88cb1286.main.js"></script>
 </body>
 
 </html>

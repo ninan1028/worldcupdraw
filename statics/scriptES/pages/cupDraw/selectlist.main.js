@@ -19,7 +19,7 @@ var vue= new Vue({
 	mounted(){
 		if(!isLogin()){
 		   // 未登录 跳转到登录页 
-		   location.href=basePath;
+		   //location.href=basePath;
 		   return;
 		}
 		getCurrentRounds().then((res)=>{
@@ -37,7 +37,13 @@ var vue= new Vue({
             if(index==this.code){
 				// code一致时进行跳转
 				location.href=htmlbasePath+this.link[index];
+			} else{
+
+				GB.utils.htoast('不在投票时间内呦');
 			}
+		},
+		goback(){
+			history.go(-1);
 		}
 	}
 })

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html class="main-html">
+<html class="main-html ">
 <head>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
     <meta charset="utf-8">
 	<title>风驰电掣世界杯</title>
 	<script>
-var basePath = 'http://worldcup.jcgame.net/activity';
-var htmlbasePath='http://worldcup.jcgame.net/activity/html';
-var imgUrl = 'http://worldcup.jcgame.net/activity/statics/images';
-var proxypath='http://worldcup.jcgame.net/activity'; // 做黄金红包 html生成图片 图片不能跨域
+var basePath = 'http://localhost:8080';
+var htmlbasePath='http://localhost:8080/html';
+var imgUrl = 'http://localhost:8080/statics/images';
+var proxypath='http://localhost:8002'; // 做黄金红包 html生成图片 图片不能跨域
 var shareBasePath='undefined';
 !function(N, M) {
     function L() {
@@ -91,25 +91,26 @@ var shareBasePath='undefined';
 </script>
 
 
-	<link rel="stylesheet" href="http://worldcup.jcgame.net/activity/statics/styles/main-1f641e69f9.css" />
+	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-1787ac2ac9.css" />
 </head>
 <body class="selectlist-body">
     <!--内容区域-->
     <div id="app" v-cloak>
+            <div class="goback" @click="goback" ></div>
             <div class="list-wrap">
                <ul>
-                   <li :class="{active:code==1}" @click="linkdetail(1)" >小组赛</li>
-                   <li :class="{active:code==2}" @click="linkdetail(2)">1/8决赛</li>
-                   <li :class="{active:code==3}" @click="linkdetail(3)">1/4决赛</li>
-                   <li :class="{active:code==4}" @click="linkdetail(4)">半决赛</li>
-                   <li :class="{active:code==5}" @click="linkdetail(5)">决赛</li>
+                   <li :class="{active:code==1}" @click="linkdetail(1)" ><span class="name">小组赛</span> <div class="time"><p>活动发布开始 至</p><p>6月20日 01:00 投票</p></div> </li>
+                   <li :class="{active:code==2}" @click="linkdetail(2)"><span class="name">1/8决赛</span> <div class="time"><p>6月29日8:00 至</p><p>6月30日 22:00 投票</p></div></li>
+                   <li :class="{active:code==3}" @click="linkdetail(3)"><span class="name">1/4决赛</span> <div class="time"><p>7月4日8:00 至</p><p>7月6日 22:00 投票</p></div></li>
+                   <li :class="{active:code==4}" @click="linkdetail(4)"><span class="name">半决赛</span> <div class="time"><p>7月8日8:00 至</p><p>7月11日 2:00 投票</p></div></li>
+                   <li :class="{active:code==5}" @click="linkdetail(5)"><span class="name">决赛</span> <div class="time"><p>7月12日8:00 至</p><p>7月15日 23:00 投票</p></div></li>
                </ul>
             </div>
     </div>   
      <!--底部引用的js资源-->
- <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/lib/vue/vue-728134de0a.js"></script>
- <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/common-jquery-13336e761c.js"></script>
-    <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/page/cupDraw/selectlist-881b0011c3.main.js"></script>
+ <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
+ <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-7a4b1799c6.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/selectlist-f55cb46c28.main.js"></script>
 </body>
 
 </html>

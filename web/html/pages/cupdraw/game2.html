@@ -6,10 +6,10 @@
     <meta charset="utf-8">
 	<title>风驰电掣世界杯</title>
 	<script>
-var basePath = 'http://worldcup.jcgame.net/activity';
-var htmlbasePath='http://worldcup.jcgame.net/activity/html';
-var imgUrl = 'http://worldcup.jcgame.net/activity/statics/images';
-var proxypath='http://worldcup.jcgame.net/activity'; // 做黄金红包 html生成图片 图片不能跨域
+var basePath = 'http://localhost:8080';
+var htmlbasePath='http://localhost:8080/html';
+var imgUrl = 'http://localhost:8080/statics/images';
+var proxypath='http://localhost:8002'; // 做黄金红包 html生成图片 图片不能跨域
 var shareBasePath='undefined';
 !function(N, M) {
     function L() {
@@ -91,46 +91,46 @@ var shareBasePath='undefined';
 </script>
 
 
-	<link rel="stylesheet" href="http://worldcup.jcgame.net/activity/statics/styles/main-1f641e69f9.css" />
+	<link rel="stylesheet" href="http://localhost:8080/statics/styles/main-1787ac2ac9.css" />
 </head>
 <body class="game2-body">
     <!--内容区域-->
     <div id="app" v-cloak>
+            <div class="goback" @click="goback" ></div>
         <template v-if="roundsCode==4">
-                <div class="title3"><span>半决赛</span></div>
-                <div class="des">
-                    <p>半决赛猜中两场比赛比分，获得抽奖资格</p>
-                    <p>(比分竞猜结果不包含加时赛与点球结果)</p>
-                </div>
+               
+           <div class="title title3">
+               <div class="icon-title2"></div>
+           </div>
         </template>
         <template v-if="roundsCode==5">
-                <div class="title3"><span>决赛</span></div>
-                <div class="des">
-                    <p>决赛猜中比赛比分，获得抽奖资格</p>
-                    <p>(比分竞猜结果不包含加时赛与点球结果)</p>
-                </div>
+                <div class="title title3">
+                        <div class="icon-title1"></div>
+                    </div>
         </template>
           
-
-           <div class="line" v-if="!isSelected" v-for="item in list">
-              <div class="county-item" flex="main:justify" >
-                <div>
-                    <img :src="basePath+item.teamAImage" alt="">
-                </div>
-                <div class="vs"></div>
-                <div>
-                    <img :src="basePath+item.teamBImage" alt="">
-                </div>
-              </div>
-              <div class="input-item" flex="main:justify">
-                <div>
-                    <input type="tel" v-model="item.scoreA"  maxlength="2" >
-                </div>
-                <div>
-                    <input type="tel" v-model="item.scoreB"  maxlength="2" >
-                </div>
-              </div>
-           </div>     
+           <div class="county-wrap">
+                <div class="line" v-if="!isSelected" v-for="item in list">
+                        <div class="county-item" flex="main:justify" >
+                          <div>
+                              <img :src="basePath+item.teamAImage" alt="">
+                          </div>
+                          <div class="vs"></div>
+                          <div>
+                              <img :src="basePath+item.teamBImage" alt="">
+                          </div>
+                        </div>
+                        <div class="input-item" flex="main:justify">
+                          <div>
+                              <input type="tel" v-model="item.scoreA"  maxlength="2" >
+                          </div>
+                          <div>
+                              <input type="tel" v-model="item.scoreB"  maxlength="2" >
+                          </div>
+                        </div>
+                     </div>  
+           </div>
+              
            <div class="line" v-if="isSelected" v-for="item in list">
             <div class="county-item" flex="main:justify" >
               <div>
@@ -156,9 +156,9 @@ var shareBasePath='undefined';
 
     </div>   
      <!--底部引用的js资源-->
- <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/lib/vue/vue-728134de0a.js"></script>
- <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/common-jquery-13336e761c.js"></script>
-    <script type="text/javascript" src="http://worldcup.jcgame.net/activity/statics/scripts/page/cupDraw/game2-b70f2574e5.main.js"></script>
+ <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
+ <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-7a4b1799c6.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/game2-cc755b102b.main.js"></script>
 </body>
 
 </html>

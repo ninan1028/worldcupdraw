@@ -39,29 +39,42 @@
             height: auto;
         }       
         .title{
-            .px2rem(padding-top,30);
-            .px2rem(margin-bottom,40);
+           
+            &.title3{
+                .px2rem(padding-top,100);
+            }
             text-align: center;
             color: #fff;
-            line-height: 1;
-            .px2px(font-size,30);
-            font-weight: bold;
-        }
-
-        .title3{
-            .px2rem(padding-top,100);
-            text-align: center;
-            font-weight: bold;
-            span{
-                display: inline-block;
-                text-align: center;
-                .px2rem(width,276);
-                .px2rem(height,108);
-                .px2rem(line-height,108);
-                color: #000;
-                background: #eecb3d;
-                .px2px(font-size,60);
-
+            .px2rem(padding-top,20);
+            .icon-title16{
+                .px2rem(width,460);
+                .px2rem(height,141);
+                .background('../images/title16.png');
+                margin:0 auto;
+            }
+            .icon-title8{
+                .px2rem(width,560);
+                .px2rem(height,143);
+                .background('../images/title8.png');
+                margin:0 auto;
+            }
+            .icon-title4{
+                .px2rem(width,559);
+                .px2rem(height,140);
+                .background('../images/title4.png');
+                margin:0 auto;
+            }
+            .icon-title2{
+                .px2rem(width,538);
+                .px2rem(height,193);
+                .background('../images/title2.png');
+                margin:0 auto;
+            }
+            .icon-title1{
+                .px2rem(width,468);
+                .px2rem(height,179);
+                .background('../images/title1.png');
+                margin:0 auto;
             }
         }
 
@@ -81,12 +94,40 @@
     }
 
     .goback{
-        .px2rem(width,147);
-        .px2rem(height,94);
+        .px2rem(width,68);
+        .px2rem(height,71);
         .bg-img('goback-btn');
         .pa();
         .px2rem(top,10);
         .px2rem(left,10);
+    }
+
+    .goback1{
+        .px2rem(width,168);
+        .px2rem(height,94);
+        .bg-img('goback-btn2');
+        .pa();
+        .px2rem(top,10);
+        .px2rem(left,10);
+    }
+
+    .common-wrap{
+        .px2rem(width,688);
+        .px2rem(height,998);
+        margin-left: auto;
+        margin-right: auto;
+        .background('../images/reward-bg.png');
+        .pr();
+
+        .content{
+            .px2rem(width,560);
+            .px2rem(height,706);
+            overflow-y: scroll;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+       
     }
 
     .submit-btn{
@@ -137,65 +178,44 @@
 
     /**规则页面**/
     .rules-body{
-        .pr();
+        .px2rem(padding-top,30);
+        .background('../images/select-bg.png');
         .rules-wrap{
-            .pa();
-            left: 50%;
-            top:50%;
-            transform: translate(-50%,-50%);
-            .px2rem(width,650);
-            background:#ffffbd;
-            .borderradius1(8);
-            box-sizing: border-box;
-            .padding(30,30,30,30);
+            .px2rem(width,735);
+            .px2rem(height,998);
+            margin-left: auto;
+            margin-right:auto;
+            box-sizing: border-box; 
+            .background('../images/rules-bg.png');
+           .px2rem(padding-top,200);
             
-            .title{
-                text-align: center;
-                line-height: 1;
-                .px2rem(padding-bottom,15);
-                color: #664106;
-                .px2px(font-size,48);
-                border-bottom: 1px solid #7a5a1e;
-                .px2rem(margin-bottom,24);
-                font-weight: bold;
-            }
             .content{
-                .padding(45,45,45,45);
-                background: #e5e58f;
-                .borderradius1(8);
-                color: #664106;
-                .px2px(font-size,40);
+                .padding(0,100,50,100);
+                color: #fff;
+                .px2px(font-size,35);
                 line-height: 1.3;
                 box-sizing: border-box;
-                .px2rem(height,500);
+                .px2rem(height,650);
                 overflow-y: scroll;
+
+                li{
+                    .clearfix();
+                    span{
+                        .fl();
+                    }
+                    p{
+                        overflow: hidden;
+                    }
+                }
             }
         }
     }
 
     /***中奖名单**/
     .reward-body{
-        .pr();
-        .reward-wrap{
-            .pa();
-            left: 50%;
-            top:50%;
-            transform: translate(-50%,-50%);
-            .px2rem(width,650);
-            background:#ffffbd;
-            .borderradius1(8);
-            box-sizing: border-box;
-            .padding(50,20,20,20);
-            .tip{
-                .pa();
-                z-index: 10;
-               .px2rem(width,343);
-               .px2rem(height,90);
-               left: 50%;
-               transform: translateX(-50%);
-                .px2rem(top,-70);
-                .bg-img('reward');
-            }
+        .px2rem(padding-top,55);
+        .background('../images/select-bg.png');
+        .common-wrap{
             .title{
                 text-align: center;
                 color: #664106;
@@ -204,28 +224,34 @@
                 font-weight: bold;
                 line-height: 1.2;
             }
-            .content{
-                .padding(10,0,30,20);
-                box-sizing: border-box;
-                .px2rem(height,632);
-                overflow-y: scroll;
-                background: #e5e58f;
-                .borderradius1(8);
-                color: #664106;
-                .px2px(font-size,40);
-                line-height: 1.3;
-
+            .content{  
+                .px2rem(width,550);
+                .px2rem(padding-top,250);
+                margin-left: auto;
+                margin-right: auto;
+                .nodata{
+                    text-align: center;
+                    .px2px(font-size,40);
+                    .px2rem(padding-top,50);
+                    color:#fff;
+                }
                 .name{
                     text-align: center;
-                    color:#664106;
-                    .px2px(font-size,40);
+                    color:#ffd708;
+                    .px2px(font-size,35);
+                    .px2rem(margin-top,20);
                     .px2rem(margin-bottom,30);
                     font-weight: bold;
                 }
                 li{
-                    color:#664106;
-                    .px2px(font-size,40); 
-                    .px2rem(margin-bottom,10);
+                   color: #fff;
+                   text-align: center;
+                   width: 80%;
+                   margin-left:auto;
+                   margin-right: auto;
+                   .px2rem(height,40);
+                   .px2rem(line-height,40);
+                   .px2px(font-size,30);
                 }
             }
         }
@@ -233,7 +259,7 @@
 
     /***选择页面***/
     .selectlist-body{
-
+        .background('../images/select-bg.png');
         .list-wrap{
             .pa();
             .px2rem(width,652);
@@ -243,13 +269,13 @@
 
             li{
                 width: 100%;
-                text-align: center;
                 color: #fff;
                 font-weight: bold;
-                .px2px(font-size,50);
+                box-sizing: border-box;
+                .px2rem(padding-left,60);
                 .px2rem(height,132);
-                .px2rem(line-height,132);
                 .px2rem(margin-bottom,34);
+                .pr();
                 .bg-img('selectlist-disabled-btn');
 
                 &.active{
@@ -257,6 +283,29 @@
                 }
                 &:last-child{
                     margin-bottom: 0;
+                }
+
+                .name{
+                    display: inline-block;
+                    .px2rem(width,294);
+                    .px2rem(height,132);
+                    .px2rem(line-height,132);
+                    color: #fff;
+                    .px2px(font-size,65);
+                    font-weight: bold;
+                    text-align: left;
+                }
+                .time{
+                    display: inline-block;
+                    color: #fff;
+                    .px2px(font-size,30);
+                    p{ line-height: 1;}
+                    p:first-child{
+                        .px2rem(margin-bottom,10);
+                    }
+                    .pa();
+                    top: 50%;
+                    transform: translateY(-50%);
                 }
             }
         }
@@ -267,12 +316,10 @@
         
         .group-name{
             .px2rem(margin-left,24);
-            text-align: center;
-            color: #fff;
-            .px2rem(width,76);
-            .px2rem(height,50);
+            text-align: left;
+            color: #fde98e;
+            .px2px(font-size,42);
             font-weight: bold;
-            .bg-img('game-bg');
             .px2rem(margin-bottom,10);
         }
         .group-list{
@@ -286,7 +333,7 @@
                 box-sizing: border-box;
                 .px2rem(padding-top,12);
                 &.active{
-                    background: #6b5d29;
+                    background: #154662;
                 }
                 img{
                     .px2rem(width,107);
@@ -326,6 +373,7 @@
           .px2rem(padding-left,54);
           .px2rem(padding-right,54);
           .bg-img('list-bg');
+          .px2rem(margin-top,20);
           .px2rem(margin-bottom,40);
           font-weight: bold;
           &:nth-child(4){
@@ -368,14 +416,26 @@
 
     /***半决赛 决赛****/
     .game2-body{
+
+        .county-wrap{
+            .px2rem(width,661);
+            margin-left: auto;
+            margin-right: auto;
+            .px2rem(margin-top,40);
+            .background('../images/game2-bg.png');
+        }
         
          .line{
-             .px2rem(padding-left,110);
-             .px2rem(padding-right,110);
-             .px2rem(margin-bottom,80);
+             .px2rem(padding-left,60);
+             .px2rem(padding-right,60);
+
+             &:nth-child(2){
+                 border-top: 1px solid #000;
+             }
 
              .county-item{
                  .px2rem(margin-bottom,30);
+                 .px2rem(padding-top,30);
                  &>div{
                      .px2rem(width,164);
                      .px2rem(height,109);
@@ -393,6 +453,7 @@
              }
 
              .input-item{
+                 .px2rem(padding-bottom,30);
                  &>div{
                     .px2rem(width,155);
                     .px2rem(height,87);
@@ -419,41 +480,31 @@
 
     /***竞猜成功页面***/
     .success-body{
-        .px2rem(padding-top,130);
+        .px2rem(padding-top,100);
+        .px2rem(padding-bottom,170);
+        .background('../images/select-bg.png');
         .success-wrap{
-           
-            .px2rem(width,649);
-            .borderradius1(8);
-            background: #ffffbd;
-            box-sizing: border-box;
-            .px2rem(padding-left,20);
-            .px2rem(padding-right,20);
-            .px2rem(padding-top,30);
-            .px2rem(padding-bottom,40);
+            .background('../images/success-bg.png');
             margin-left: auto;
-            margin-right: auto;
-            .title{
-                text-align: center;
-                line-height: 1.4;
-                color: #664106;
-                .px2px(font-size,48);
-                border-bottom: 1px solid #664106;
-            }
+            margin-right:auto;
+            .px2rem(width,649);
+            .px2rem(padding-bottom,80);        
+            box-sizing: border-box;
+            .px2rem(padding-top,200);
             .content{
-               .padding(40,60,120,60); 
-               color: #664106;
-               .px2px(font-size,40);
+               .padding(0,100,30,100); 
+               color: #fff;
+               .px2px(font-size,35);
                line-height: 1.3;
             }
 
             .btn{
-
+                .px2rem(padding-top,20);
                 &>div{
-                    .px2rem(width,421);
-                    .px2rem(height,98);
+                    .px2rem(width,433);
+                    .px2rem(height,113);
                     margin-left: auto;
                     margin-right: auto;
-                    .px2rem(margin-bottom,40);
 
                     &.share-btn{
                         .bg-img('share-btn');
@@ -473,13 +524,13 @@
                     color: #000;
                     .px2px(font-size,40);
                     line-height: 1.3;
-                    color: #664106;
+                    color: #fff;
                     .px2rem(margin-bottom,20);
                 }
                 .erweima{
                     display:block;
-                    .px2rem(width,420);
-                    .px2rem(height,421);
+                    .px2rem(width,315);
+                    .px2rem(height,315);
                     margin-left: auto;
                     margin-right:auto;
                      img{

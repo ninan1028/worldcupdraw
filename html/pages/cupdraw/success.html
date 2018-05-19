@@ -11,15 +11,10 @@
 <body class="success-body">
   <!--内容区域-->
   <div id="app" v-cloak>
-     <div class="goback" @click="goback" ></div>
+     <div class="goback1" @click="goback" ></div>
       <div class="success-wrap">
-          <div class="title">竞猜成功</div>
          <div class="content">
             恭喜你竞猜成功，{{text[code]}}全部结束，中奖名单与微信公众号推送中奖信息同步。       
-        </div>
-        <div class="btn">
-          <div class="share-btn" @click="share"></div>
-          <!-- <div class="floww-btn" @click="flow"></div> -->
         </div>
         <div class="flow-wrap">
             <div class="tip">想知道获奖情况，请关注国网河北电力了解更多抽奖情况。</div>
@@ -27,6 +22,11 @@
               <img src="<%=imgUrl%>/erweima.png" alt="">
             </div>
         </div>
+        <div class="btn">
+          <div class="share-btn" @click="share"></div>
+          <!-- <div class="floww-btn" @click="flow"></div> -->
+        </div>
+       
       </div>
     </div>
   @@include('vue-footer.html')

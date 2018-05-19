@@ -11,11 +11,8 @@
 <body class="reward-body">
     <!--内容区域-->
     <div id="app" v-cloak>
-            <div class="goback" @click="goback" ></div>
-            <div class="reward-wrap">
-                <div class="tip"></div>
-                <div class="title">中奖名单与微信公众号<br>
-                        推送中奖信息同步</div>
+            <div class="goback1" @click="goback" ></div>
+            <div class="common-wrap">
               <div class="content">
                 <div class="nodata" style="text-align:center;" v-if="list.length==0">还未有中奖名单</div>
                       <div class="item" v-for="item in list">

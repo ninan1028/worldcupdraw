@@ -1,9 +1,10 @@
 
 import {getMatch,voteScore} from '../../service/cupdraw/service'
 
-var roundsCode=GB.utils.GetRequest()['roundsCode']||4
+var roundsCode=GB.utils.GetRequest()['roundsCode']||4;
+var testlist=[{}]
 
-var testlist=[];
+//var testlist=[];
 var vue= new Vue({
 	el:'#app',
 	data:{
@@ -20,7 +21,7 @@ var vue= new Vue({
 			if(res.status==0){
 				var list=res.data.list||[];
 				this.list=this.formatList(list);
-				this.isSelected=res.data.isSelected;
+				//this.isSelected=res.data.isSelected;
 			  } else{
 				  if(res.msg){
                     GB.utils.htoast(res.msg);
@@ -28,7 +29,7 @@ var vue= new Vue({
 			  }
 		})
 
-		//this.list=this.formatList();
+		this.list=this.formatList();
 	},
 	methods:{
 		formatList(list){
@@ -81,6 +82,9 @@ var vue= new Vue({
 				  }
 			})
 
+		},
+		goback(){
+			history.go(-1);
 		}
 	}
 })
