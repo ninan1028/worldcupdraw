@@ -29,7 +29,7 @@ var vue= new Vue({
 			  }
 		})
 
-		this.list=this.formatList();
+		//this.list=this.formatList();
 	},
 	methods:{
 		formatList(list){

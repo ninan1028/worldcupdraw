@@ -92,14 +92,14 @@ var shareBasePath='undefined';
 </script>
 
 
-    <link rel="stylesheet" href="http://localhost:8080/statics/styles/main-1787ac2ac9.css" />
+    <link rel="stylesheet" href="http://localhost:8080/statics/styles/main-fcce828487.css" />
 </head>
 
 <body class="login-body">
     <!--内容区域-->
     <div class="wrap" id="app">
+        <div class="goback1" @click="goback" ></div>
         <div class="login-wrap" v-show="status==1">
-            <div class="title">手机号登录</div>
             <div class="form">
                 <div class="input">
                     <span>手机号</span>
@@ -121,7 +121,6 @@ var shareBasePath='undefined';
             </div>
         </div>
         <div class="login-wrap" v-show="status==2">
-                <div class="title">手机号注册</div>
                 <div class="form">
                     <div class="input">
                         <span>手机号</span>
@@ -132,7 +131,7 @@ var shareBasePath='undefined';
                         <input class="input1" maxlength="10" v-model="rpassword" type="password">
                     </div>
                     <div class="input">
-                            <span>再次密码</span>
+                            <span>确认密码</span>
                             <input class="input1" maxlength="10" v-model="ragainpassword" type="password">
                         </div>
                     <div class="input" >
@@ -149,8 +148,7 @@ var shareBasePath='undefined';
 
         <div class="info">
             <p>输入个人手机，设定密码，完成登录 </p>
-            <p>请牢记密码，密码丢失无法找回 </p>
-            <p>（但不影响兑奖）</p>
+            <p>请牢记密码，密码丢失无法找回 （但不影响兑奖）</p>
             <p>奖品发放以手机号作为凭证，请熟知</p>
         </div>
 
@@ -158,7 +156,7 @@ var shareBasePath='undefined';
      <!--底部引用的js资源-->
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/lib/vue/vue-66ba6d0e76.js"></script>
  <script type="text/javascript" src="http://localhost:8080/statics/scripts/common-jquery-7a4b1799c6.js"></script>
-    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/login-4246b1ce7b.main.js"></script>
+    <script type="text/javascript" src="http://localhost:8080/statics/scripts/page/cupDraw/login-279687c437.main.js"></script>
 </body>
 
 </html>

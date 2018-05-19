@@ -2097,6 +2097,9 @@ th {
 [data-dpr="4"] .main-html .success-body .success-wrap .content {
   font-size: 70px;
 }
+.main-html .success-body .success-wrap .btn {
+  padding-top: 0.26666667rem;
+}
 .main-html .success-body .success-wrap .btn > div {
   width: 5.77333333rem;
   height: 1.50666667rem;
@@ -2156,50 +2159,22 @@ th {
 .main-html .login-body {
   padding-top: 1.73333333rem;
   height: auto;
+  background-image: url('../images/select-bg.png');
+  -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
 }
 .main-html .login-body .wrap {
   width: 8.65333333rem;
-  border-top-left-radius: 0.10666667rem;
-  border-top-right-radius: 0.10666667rem;
-  border-bottom-right-radius: 0.10666667rem;
-  border-bottom-left-radius: 0.10666667rem;
-  border-radius: 0.10666667rem;
-  -webkit-background-clip: padding-box;
-          background-clip: padding-box;
-  background: #ffffbd;
+  background-image: url('../images/loginmain-bg.png');
+  -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-  padding-left: 0.26666667rem;
-  padding-right: 0.26666667rem;
   padding-top: 0.4rem;
   padding-bottom: 1.06666667rem;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
-  *zoom: 1;
-}
-.main-html .login-body .wrap .title {
-  text-align: center;
-  line-height: 1.4;
-  color: #664106;
-  font-size: 24px;
-  border-bottom: 1px solid #664106;
-}
-[data-dpr="2"] .main-html .login-body .wrap .title {
-  font-size: 48px;
-}
-[data-dpr="2.5"] .main-html .login-body .wrap .title {
-  font-size: 60px;
-}
-[data-dpr="2.75"] .main-html .login-body .wrap .title {
-  font-size: 66px;
-}
-[data-dpr="3"] .main-html .login-body .wrap .title {
-  font-size: 72px;
-}
-[data-dpr="4"] .main-html .login-body .wrap .title {
-  font-size: 96px;
 }
 .main-html .login-body .wrap .login-btn {
   margin-left: auto;
@@ -2234,30 +2209,31 @@ th {
   font-size: 128px;
 }
 .main-html .login-body .wrap .info {
-  text-align: center;
-  color: #664106;
-  font-size: 14px;
+  text-align: left;
+  color: #fff;
+  font-size: 13px;
   line-height: 1.4;
+  padding-left: 0.8rem;
 }
 [data-dpr="2"] .main-html .login-body .wrap .info {
-  font-size: 28px;
+  font-size: 25px;
 }
 [data-dpr="2.5"] .main-html .login-body .wrap .info {
-  font-size: 35px;
+  font-size: 31px;
 }
 [data-dpr="2.75"] .main-html .login-body .wrap .info {
-  font-size: 39px;
+  font-size: 34px;
 }
 [data-dpr="3"] .main-html .login-body .wrap .info {
-  font-size: 42px;
+  font-size: 38px;
 }
 [data-dpr="4"] .main-html .login-body .wrap .info {
-  font-size: 56px;
+  font-size: 50px;
 }
 .main-html .login-body .wrap .form {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0.8rem;
+  margin-top: 3.2rem;
 }
 .main-html .login-body .wrap .form .input {
   *zoom: 1;
@@ -2287,7 +2263,7 @@ th {
   height: 0.86666667rem;
   line-height: 0.86666667rem;
   font-size: 18px;
-  color: #664106;
+  color: #fff;
   margin-right: 0.13333333rem;
 }
 [data-dpr="2"] .main-html .login-body .wrap .form .input span {
@@ -2314,8 +2290,8 @@ th {
   padding-left: 0.2rem;
   float: left;
   *display: inline;
-  background: #ffffd1;
-  border: 1px solid #f8e396;
+  background: #fff;
+  border: 1px solid #afc8d6;
   border-top-left-radius: 0.10666667rem;
   border-top-right-radius: 0.10666667rem;
   border-bottom-right-radius: 0.10666667rem;
@@ -2334,8 +2310,8 @@ th {
   padding-left: 0.2rem;
   float: left;
   *display: inline;
-  background: #ffffd1;
-  border: 1px solid #f8e396;
+  background: #fff;
+  border: 1px solid #afc8d6;
   border-top-left-radius: 0.10666667rem;
   border-top-right-radius: 0.10666667rem;
   border-bottom-right-radius: 0.10666667rem;
@@ -2354,29 +2330,29 @@ th {
   background: #efefef;
 }
 .main-html .login-body .wrap .form .tip {
-  text-align: right;
-  font-size: 15px;
-  color: #664106;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
   line-height: 1.3;
-  margin-right: 0.8rem;
+  margin-top: 0.53333333rem;
 }
 [data-dpr="2"] .main-html .login-body .wrap .form .tip {
-  font-size: 30px;
+  font-size: 35px;
 }
 [data-dpr="2.5"] .main-html .login-body .wrap .form .tip {
-  font-size: 38px;
+  font-size: 44px;
 }
 [data-dpr="2.75"] .main-html .login-body .wrap .form .tip {
-  font-size: 41px;
+  font-size: 48px;
 }
 [data-dpr="3"] .main-html .login-body .wrap .form .tip {
-  font-size: 45px;
+  font-size: 53px;
 }
 [data-dpr="4"] .main-html .login-body .wrap .form .tip {
-  font-size: 60px;
+  font-size: 70px;
 }
 .main-html .login-body .wrap .form .tip span {
-  border-bottom: 1px solid #664106;
+  border-bottom: 1px solid #fff;
 }
 
 /*# sourceMappingURL=main.css.map */

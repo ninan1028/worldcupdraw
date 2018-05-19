@@ -100,6 +100,9 @@ var vue= new Vue({
                 }
             })
 
+        },
+        goback(){
+            history.go(-1);
         }
     }
 })

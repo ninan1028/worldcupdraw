@@ -541,6 +541,9 @@ var vue = new Vue({
                     }
                 }
             });
+        },
+        goback: function goback() {
+            history.go(-1);
         }
     }
 });
