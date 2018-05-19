@@ -25,6 +25,7 @@ var vue= new Vue({
 	},
 	mounted(){
 		this.audio= new Audio(imgUrl+'/cupdraw.mp3');
+		this.audio.loop=true;
 		setTimeout(()=>{
 			if(this.audioStatus) {this.audio.play()};
 		},1000)

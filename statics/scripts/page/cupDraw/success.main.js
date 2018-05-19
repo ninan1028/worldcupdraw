@@ -467,7 +467,7 @@ var vue = new Vue({
 
 		if (!isLogin()) {
 			// 未登录 跳转到登录页 
-			//location.href=basePath;
+			location.href = basePath;
 			return;
 		}
 		getCurrentRounds().then(function (res) {
