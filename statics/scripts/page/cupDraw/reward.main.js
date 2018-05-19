@@ -497,7 +497,3 @@ var vue = new Vue({
 });
 
 }());
-
-//# sourceMappingURL=reward.main.js.map
-
-//# sourceMappingURL=reward.main.js.map

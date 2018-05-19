@@ -11,7 +11,7 @@
 <body class="main-body">
 	<!--内容区域-->
 	<div id="app" v-cloak>
-
+       <div class="audio" @click="audioswitch" :class="{off:!audioStatus}"></div>
       <div class="list-btn">
 		  <div class="beginBtn" @click="showlist"></div>
 		  <div class="rewardBtn" @click="toreward"></div>

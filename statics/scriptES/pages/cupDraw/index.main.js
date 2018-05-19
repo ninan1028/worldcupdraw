@@ -6,13 +6,28 @@
 
  import {isLogin} from '../../utils/util'
 
+ var audioStatus=localStorage.getItem('cupdraw');
+ if(audioStatus==null){
+	 audioStatus=true;
+ }
+ if(audioStatus==='false'){
+	 audioStatus=false;
+ }
+ if(audioStatus==='true'){
+	audioStatus=true;
+}
+
 var vue= new Vue({
 	el:'#app',
 	data:{
-
+		audioStatus:audioStatus,
+		audio:''
 	},
 	mounted(){
-		
+		this.audio= new Audio(imgUrl+'/cupdraw.mp3');
+		setTimeout(()=>{
+			if(this.audioStatus) {this.audio.play()};
+		},1000)
 	},
 	methods:{
 		showlist(){
@@ -28,6 +43,15 @@ var vue= new Vue({
 		},
 		torules(){
 			location.href=htmlbasePath+'/pages/cupdraw/rules.html';
+		},
+		audioswitch(){
+			this.audioStatus=!this.audioStatus;
+			localStorage.setItem('cupdraw',this.audioStatus);
+			if(this.audioStatus){
+              this.audio.play();
+			} else{
+              this.audio.pause();
+			}
 		}
 	}
 })

@@ -466,7 +466,7 @@ var vue = new Vue({
 
 		if (!isLogin()) {
 			// 未登录 跳转到登录页 
-			//location.href=basePath;
+			location.href = basePath;
 			return;
 		}
 		getCurrentRounds().then(function (res) {
@@ -487,7 +487,7 @@ var vue = new Vue({
 				location.href = htmlbasePath + this.link[index];
 			} else {
 
-				GB.utils.htoast('不在投票时间内呦');
+				GB.utils.htoast('亲，此阶段投票还没开始哟~');
 			}
 		},
 		goback: function goback() {
@@ -497,7 +497,3 @@ var vue = new Vue({
 });
 
 }());
-
-//# sourceMappingURL=selectlist.main.js.map
-
-//# sourceMappingURL=selectlist.main.js.map

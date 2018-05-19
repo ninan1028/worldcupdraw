@@ -473,7 +473,7 @@ var vue = new Vue({
 			}
 		});
 
-		this.list = this.formatList();
+		//this.list=this.formatList();
 	},
 
 	methods: {
@@ -533,7 +533,3 @@ var vue = new Vue({
 });
 
 }());
-
-//# sourceMappingURL=game2.main.js.map
-
-//# sourceMappingURL=game2.main.js.map

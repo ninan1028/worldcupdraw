@@ -427,10 +427,33 @@ var isLogin = function isLogin() {
  * 主页逻辑
  */
 
+var audioStatus = localStorage.getItem('cupdraw');
+if (audioStatus == null) {
+	audioStatus = true;
+}
+if (audioStatus === 'false') {
+	audioStatus = false;
+}
+if (audioStatus === 'true') {
+	audioStatus = true;
+}
+
 var vue = new Vue({
 	el: '#app',
-	data: {},
-	mounted: function mounted() {},
+	data: {
+		audioStatus: audioStatus,
+		audio: ''
+	},
+	mounted: function mounted() {
+		var _this = this;
+
+		this.audio = new Audio(imgUrl + '/cupdraw.mp3');
+		setTimeout(function () {
+			if (_this.audioStatus) {
+				_this.audio.play();
+			}
+		}, 1000);
+	},
 
 	methods: {
 		showlist: function showlist() {
@@ -446,12 +469,17 @@ var vue = new Vue({
 		},
 		torules: function torules() {
 			location.href = htmlbasePath + '/pages/cupdraw/rules.html';
+		},
+		audioswitch: function audioswitch() {
+			this.audioStatus = !this.audioStatus;
+			localStorage.setItem('cupdraw', this.audioStatus);
+			if (this.audioStatus) {
+				this.audio.play();
+			} else {
+				this.audio.pause();
+			}
 		}
 	}
 });
 
 }());
-
-//# sourceMappingURL=index.main.js.map
-
-//# sourceMappingURL=index.main.js.map
