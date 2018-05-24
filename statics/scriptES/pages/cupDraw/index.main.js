@@ -21,13 +21,17 @@ var vue= new Vue({
 	el:'#app',
 	data:{
 		audioStatus:audioStatus,
-		audio:''
+		audio:'',
+		day:6,
+		countNum:300,
+		isani:false
 	},
 	mounted(){
 		this.audio= new Audio(imgUrl+'/cupdraw.mp3');
 		this.audio.loop=true;
 		setTimeout(()=>{
 			if(this.audioStatus) {this.audio.play()};
+			this.isani=true;
 		},1000)
 	},
 	methods:{

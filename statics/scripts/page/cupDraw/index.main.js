@@ -442,7 +442,10 @@ var vue = new Vue({
 	el: '#app',
 	data: {
 		audioStatus: audioStatus,
-		audio: ''
+		audio: '',
+		day: 6,
+		countNum: 300,
+		isani: false
 	},
 	mounted: function mounted() {
 		var _this = this;
@@ -453,6 +456,7 @@ var vue = new Vue({
 			if (_this.audioStatus) {
 				_this.audio.play();
 			}
+			_this.isani = true;
 		}, 1000);
 	},
 

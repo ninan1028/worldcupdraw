@@ -21,6 +21,40 @@
     background-image: url('../images/@{url}.png');
 }
 
+@keyframes rollUp {
+    0% {
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes rollUp {
+    0% {
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
 /***页面样式*****/
 
 .main-html{
@@ -155,6 +189,32 @@
             .background('../images/video.png');
             &.off{
                .background('../images/video-off.png');
+            }
+        }
+
+        .scroll{
+            .pa();
+            overflow: hidden;
+            .px2rem(width,590);
+            .px2rem(height,50);
+            color: #fff;
+            .px2rem(top,20);
+            transform: translate3d(-50%,0,0);
+            background: rgba(0,0,0,0.4);
+            left: 50%;
+            .px2px(font-size,30);
+            &>div{
+                height: 100%;
+                .px2rem(line-height,50);
+               
+                .px2rem(padding-left,600);
+                white-space: nowrap;
+                display: inline-block;
+                will-change:transform;
+
+                &.ani{
+                    animation: rollUp 18s linear infinite;
+                }
             }
         }
         .list-btn{

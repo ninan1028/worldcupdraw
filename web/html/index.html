@@ -91,12 +91,14 @@ var shareBasePath='undefined';
 </script>
 
 
-	<link rel="stylesheet" href="http://worldcup.toptour.cn/activity/statics/styles/main-719d6ae232.css" />
+	<link rel="stylesheet" href="http://worldcup.toptour.cn/activity/statics/styles/main-c062f8d4e3.css" />
 </head>
 <body class="main-body">
 	<!--内容区域-->
 	<div id="app" v-cloak>
-       <div class="audio" @click="audioswitch" :class="{off:!audioStatus}"></div>
+	   <div class="audio" @click="audioswitch" :class="{off:!audioStatus}"></div>
+	   <div class="scroll">
+		   <div :class="{ani:isani}">截止至6月{{day}}日，已有超过{{countNum}}位小伙伴成功参与了活动哟~快来和你的朋友们一起赢取丰厚大奖吧！</div></div>
       <div class="list-btn">
 		  <div class="beginBtn" @click="showlist"></div>
 		  <div class="rewardBtn" @click="toreward"></div>
@@ -107,7 +109,7 @@ var shareBasePath='undefined';
 	 <!--底部引用的js资源-->
  <script type="text/javascript" src="http://worldcup.toptour.cn/activity/statics/scripts/lib/vue/vue-728134de0a.js"></script>
  <script type="text/javascript" src="http://worldcup.toptour.cn/activity/statics/scripts/common-jquery-13336e761c.js"></script>
-	<script type="text/javascript" src="http://worldcup.toptour.cn/activity/statics/scripts/page/cupDraw/index-f20b70fc2b.main.js"></script>
+	<script type="text/javascript" src="http://worldcup.toptour.cn/activity/statics/scripts/page/cupDraw/index-15cc06d6ee.main.js"></script>
 </body>
 
 </html>
