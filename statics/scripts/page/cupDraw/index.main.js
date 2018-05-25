@@ -423,6 +423,36 @@ var isLogin = function isLogin() {
 	return !!telephone;
 };
 
+/**
+ * Created by wanglin on 2017/7/24.
+ */
+//用户注册
+
+// 用户登录
+
+
+//查询中奖者名单
+
+
+//查询当前轮次
+
+
+// 比分投票
+
+// 晋级球队投票
+
+
+// 获取比赛列表
+
+
+// 获取小组赛球队列表
+
+
+// 获取用户参与的人数
+var getUserCount = function getUserCount() {
+    return _post("userNum/getUserNum");
+};
+
 /******
  * 主页逻辑
  */
@@ -443,6 +473,7 @@ var vue = new Vue({
 	data: {
 		audioStatus: audioStatus,
 		audio: '',
+		month: '',
 		day: 6,
 		countNum: 300,
 		isani: false
@@ -458,9 +489,42 @@ var vue = new Vue({
 			}
 			_this.isani = true;
 		}, 1000);
+
+		this.getNum();
 	},
 
 	methods: {
+		getNum: function getNum() {
+			var _this2 = this;
+
+			// 获取用户参数的人数及时间
+
+			getUserCount().then(function (res) {
+				if (+res.status == 0) {
+					var time = res.data.time;
+					var num = res.data.num;
+					var Dtime = '';
+					if (time) {
+						time = time.replace(/\-/g, '/');
+						Dtime = new Date(time);
+						_this2.month = Dtime.getMonth() + 1;
+						_this2.day = Dtime.getDate();
+						_this2.countNum = num;
+					}
+				}
+			});
+
+			//    var time='2018-5-20';
+			// 	var num=40;
+			// 	var Dtime='';
+			// 	if(time){
+			// 		time=time.replace(/\-/g,'/');
+			// 		Dtime=new Date(time);
+			// 		this.month=Dtime.getMonth()+1;
+			// 		this.day=Dtime.getDate();
+			// 		this.countNum=num;
+			// 	}
+		},
 		showlist: function showlist() {
 			// 展示 选择列表
 			if (isLogin()) {

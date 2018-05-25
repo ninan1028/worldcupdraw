@@ -441,6 +441,9 @@ var getWinningList = function getWinningList() {
 
 // 获取小组赛球队列表
 
+
+// 获取用户参与的人数
+
 /*****展示中奖列表*/
 var vue = new Vue({
     el: '#app',

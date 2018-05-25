@@ -41,3 +41,8 @@ export const getMatch = (data) => {
 export const getTeamsFor32 = (data) => {
     return post("team/getTeamsFor32",data);
 }
+
+// 获取用户参与的人数
+export const getUserCount = () => {
+    return post("userNum/getUserNum");
+}

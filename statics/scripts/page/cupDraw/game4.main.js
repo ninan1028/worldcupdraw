@@ -443,6 +443,9 @@ var getMatch = function getMatch(data) {
 
 // 获取小组赛球队列表
 
+
+// 获取用户参与的人数
+
 //var testlist=[{"id":117,"matchCode":"i","roundCode":"3","matchTime":"2018-06-28 15:00:00.0","matchAdress":"iii","teamA":33,"teamB":45,"teamAName":"德国","teamBName":"墨西哥","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":118,"matchCode":"j","roundCode":"3","matchTime":"2018-06-29 15:00:00.0","matchAdress":"jjj","teamA":41,"teamB":37,"teamAName":"阿根廷","teamBName":"英格兰","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":119,"matchCode":"k","roundCode":"3","matchTime":"2018-06-30 18:00:00.0","matchAdress":"kkk","teamA":53,"teamB":49,"teamAName":"巴西","teamBName":"意大利","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000},{"id":120,"matchCode":"l","roundCode":"3","matchTime":"2018-07-01 15:00:00.0","matchAdress":"lll","teamA":57,"teamB":38,"teamAName":"法 国","teamBName":"巴拉圭","selectedTeam":null,"score":null,"userId":null,"createTime":1524987156000,"modifyTime":1524987156000}];
 var testlist = [];
 var vue = new Vue({

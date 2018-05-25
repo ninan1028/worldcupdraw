@@ -443,6 +443,9 @@ var getMatch = function getMatch(data) {
 
 // 获取小组赛球队列表
 
+
+// 获取用户参与的人数
+
 var roundsCode = GB.utils.GetRequest()['roundsCode'] || 4;
 var testlist = [{}];
 

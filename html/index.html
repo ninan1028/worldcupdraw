@@ -13,7 +13,7 @@
 	<div id="app" v-cloak>
 	   <div class="audio" @click="audioswitch" :class="{off:!audioStatus}"></div>
 	   <div class="scroll">
-		   <div :class="{ani:isani}">截止至6月{{day}}日，已有超过{{countNum}}位小伙伴成功参与了活动哟~快来和你的朋友们一起赢取丰厚大奖吧！</div></div>
+		   <div :class="{ani:isani}">截止至{{month}}月{{day}}日，已有超过{{countNum}}位小伙伴成功参与了活动哟~快来和你的朋友们一起赢取丰厚大奖吧！</div></div>
       <div class="list-btn">
 		  <div class="beginBtn" @click="showlist"></div>
 		  <div class="rewardBtn" @click="toreward"></div>

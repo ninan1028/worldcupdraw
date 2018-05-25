@@ -6,6 +6,8 @@
 
  import {isLogin} from '../../utils/util'
 
+ import {getUserCount} from '../../service/cupdraw/service'
+
  var audioStatus=localStorage.getItem('cupdraw');
  if(audioStatus==null){
 	 audioStatus=true;
@@ -22,6 +24,7 @@ var vue= new Vue({
 	data:{
 		audioStatus:audioStatus,
 		audio:'',
+		month:'',
 		day:6,
 		countNum:300,
 		isani:false
@@ -33,8 +36,40 @@ var vue= new Vue({
 			if(this.audioStatus) {this.audio.play()};
 			this.isani=true;
 		},1000)
+
+		this.getNum();
 	},
 	methods:{
+		getNum(){
+			 // 获取用户参数的人数及时间
+
+			 getUserCount().then((res)=>{
+                if(+res.status==0){
+					var time=res.data.time;
+					var num=res.data.num;
+					var Dtime='';
+					if(time){
+						time=time.replace(/\-/g,'/');
+						Dtime=new Date(time);
+						this.month=Dtime.getMonth()+1;
+						this.day=Dtime.getDate();
+			            this.countNum=num;
+					}
+				}
+			 })
+
+			    //    var time='2018-5-20';
+				// 	var num=40;
+				// 	var Dtime='';
+				// 	if(time){
+				// 		time=time.replace(/\-/g,'/');
+				// 		Dtime=new Date(time);
+				// 		this.month=Dtime.getMonth()+1;
+				// 		this.day=Dtime.getDate();
+				// 		this.countNum=num;
+				// 	}
+
+		},
 		showlist(){
 			// 展示 选择列表
 			if(isLogin()){

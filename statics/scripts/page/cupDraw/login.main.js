@@ -443,6 +443,9 @@ var login = function login(data) {
 
 // 获取小组赛球队列表
 
+
+// 获取用户参与的人数
+
 var vue = new Vue({
     el: '#app',
     data: {
