@@ -459,15 +459,15 @@ var getUserCount = function getUserCount() {
 
 //var audioStatus=localStorage.getItem('cupdraw');
 var audioStatus = true;
-if (audioStatus == null) {
-	audioStatus = true;
-}
-if (audioStatus === 'false') {
-	audioStatus = false;
-}
-if (audioStatus === 'true') {
-	audioStatus = true;
-}
+//  if(audioStatus==null){
+// 	 audioStatus=true;
+//  }
+//  if(audioStatus==='false'){
+// 	 audioStatus=false;
+//  }
+//  if(audioStatus==='true'){
+// 	audioStatus=true;
+// }
 
 var vue = new Vue({
 	el: '#app',
@@ -482,12 +482,9 @@ var vue = new Vue({
 	mounted: function mounted() {
 		var _this = this;
 
-		this.audio = new Audio(imgUrl + '/cupdraw.mp3');
-		this.audio.loop = true;
+		// this.audio= new Audio(imgUrl+'/cupdraw.mp3');
+		// this.audio.loop=true;
 		setTimeout(function () {
-			if (_this.audioStatus) {
-				_this.audio.play();
-			}
 			_this.isani = true;
 		}, 1000);
 
@@ -514,17 +511,6 @@ var vue = new Vue({
 					}
 				}
 			});
-
-			//    var time='2018-5-20';
-			// 	var num=40;
-			// 	var Dtime='';
-			// 	if(time){
-			// 		time=time.replace(/\-/g,'/');
-			// 		Dtime=new Date(time);
-			// 		this.month=Dtime.getMonth()+1;
-			// 		this.day=Dtime.getDate();
-			// 		this.countNum=num;
-			// 	}
 		},
 		showlist: function showlist() {
 			// 展示 选择列表
