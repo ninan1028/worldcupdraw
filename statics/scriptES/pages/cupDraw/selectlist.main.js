@@ -38,8 +38,12 @@ var vue= new Vue({
 				// code一致时进行跳转
 				location.href=htmlbasePath+this.link[index];
 			} else{
-
-				GB.utils.htoast('亲，此阶段投票还没开始哟~');
+                if(index<this.code){
+					GB.utils.htoast('亲，此阶段投票已结束~');
+				} else{
+					GB.utils.htoast('亲，此阶段投票还没开始哟~');
+				}
+				
 			}
 		},
 		goback(){

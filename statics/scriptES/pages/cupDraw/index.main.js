@@ -8,7 +8,8 @@
 
  import {getUserCount} from '../../service/cupdraw/service'
 
- var audioStatus=localStorage.getItem('cupdraw');
+ //var audioStatus=localStorage.getItem('cupdraw');
+ var audioStatus=true;
  if(audioStatus==null){
 	 audioStatus=true;
  }

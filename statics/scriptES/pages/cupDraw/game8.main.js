@@ -1,7 +1,7 @@
 
 import {getMatch,votePromotion} from '../../service/cupdraw/service'
 
-//var testlist=[{"id":97,"matchCode":"a","roundCode":"2","matchTime":"2018-06-22 15:00:00.0","matchAdress":"aaa","teamA":33,"teamB":37,"teamAName":"德国","teamBName":"英格兰","selectedTeam":null,"score":null,"userId":null,"createTime":1524985333000,"modifyTime":1524985333000},{"id":98,"matchCode":"b","roundCode":"2","matchTime":"2018-06-23 15:00:00.0","matchAdress":"bbb","teamA":34,"teamB":45,"teamAName":"哥斯达黎加","teamBName":"墨西哥","selectedTeam":null,"score":null,"userId":null,"createTime":1524985333000,"modifyTime":1524985333000},{"id":99,"matchCode":"c","roundCode":"2","matchTime":"2018-06-23 18:00:00.0","matchAdress":"ccc","teamA":41,"teamB":40,"teamAName":"阿根廷","teamBName":"瑞 典","selectedTeam":null,"score":null,"userId":null,"createTime":1524985333000,"modifyTime":1524985333000},{"id":100,"matchCode":"d","roundCode":"2","matchTime":"2018-06-24 15:00:00.0","matchAdress":"ddd","teamA":37,"teamB":51,"teamAName":"英格兰","teamBName":"美 国","selectedTeam":null,"score":null,"userId":null,"createTime":1524985333000,"modifyTime":1524985333000},{"id":101,"matchCode":"e","roundCode":"2","matchTime":"2018-06-25 12:00:00.0","matchAdress":"eee","teamA":53,"teamB":58,"teamAName":"巴西","teamBName":"瑞 士","selectedTeam":null,"score":null,"userId":null,"createTime":1524985333000,"modifyTime":1524985333000},{"id":102,"matchCode":"f","roundCode":"2","matchTime":"2018-06-26 15:00:00.0","matchAdress":"fff","teamA":49,"teamB":61,"teamAName":"意大利","teamBName":"西班牙","selectedTeam":null,"score":null,"userId":null,"createTime":1524985333000,"modifyTime":1524985333000},{"id":103,"matchCode":"g","roundCode":"2","matchTime":"2018-06-27 08:00:00.0","matchAdress":"ggg","teamA":57,"teamB":48,"teamAName":"法 国","teamBName":"葡萄牙","selectedTeam":null,"score":null,"userId":null,"createTime":1524985333000,"modifyTime":1524985333000},{"id":104,"matchCode":"h","roundCode":"2","matchTime":"2018-06-27 15:00:00.0","matchAdress":"hhh","teamA":62,"teamB":38,"teamAName":"乌克兰","teamBName":"巴拉圭","selectedTeam":null,"score":null,"userId":null,"createTime":1524985333000,"modifyTime":1524985333000}];
+//var testlist=[{"id":159,"matchCode":"d","roundCode":"3","matchTime":"2017-07-08 02:00:00.0","matchAdress":"萨马拉","teamA":82,"teamB":87,"teamAName":"瑞士","teamBName":"瑞典","teamAImage":"/assets/img/team/rs.png","teamBImage":"/assets/img/team/rd.png","selectedTeam":null,"score":null,"selectedScore":null,"userId":null,"createTime":1528818483000,"modifyTime":1528818483000},{"id":156,"matchCode":"a","roundCode":"3","matchTime":"2018-07-06 22:00:00.0","matchAdress":"下诺夫哥罗德","teamA":69,"teamB":77,"teamAName":"葡萄牙","teamBName":"阿根廷","teamAImage":"/assets/img/team/pty.png","teamBImage":"/assets/img/team/agt.png","selectedTeam":null,"score":null,"selectedScore":null,"userId":null,"createTime":1528818483000,"modifyTime":1528818483000},{"id":157,"matchCode":"b","roundCode":"3","matchTime":"2018-07-07 02:00:00.0","matchAdress":"喀山","teamA":72,"teamB":78,"teamAName":"伊朗","teamBName":"冰岛","teamAImage":"/assets/img/team/yl.png","teamBImage":"/assets/img/team/bd.png","selectedTeam":null,"score":null,"selectedScore":null,"userId":null,"createTime":1528818483000,"modifyTime":1528818483000},{"id":158,"matchCode":"c","roundCode":"3","matchTime":"2018-07-07 22:00:00.0","matchAdress":"索契","teamA":81,"teamB":93,"teamAName":"巴西","teamBName":"波兰","teamAImage":"/assets/img/team/bx.png","teamBImage":"/assets/img/team/bl.png","selectedTeam":null,"score":null,"selectedScore":null,"userId":null,"createTime":1528818483000,"modifyTime":1528818483000}]
 var testlist=[];
 var vue= new Vue({
 	el:'#app',
@@ -33,12 +33,17 @@ var vue= new Vue({
 		formatList(list){
 			var  list=list||testlist;
 			list.forEach((item)=>{
+			   item.matchTime=item.matchTime.split('.')[0];
 			   var time=new Date(item.matchTime.replace(/-/g,'/')); 			   
 			   var data=time.getMonth()+1+'月'+time.getDate()+'日';
 			   var  getMinutes=time.getMinutes()?time.getMinutes():'00';
 			   var hour=time.getHours()+':'+getMinutes;
+			   var newteamAImage=basePath+item.teamAImage;
+			   var newteamBImage=basePath+item.teamBImage;
 			   item.data=data;
 			   item.hour=hour;
+			   item.newteamAImage=newteamAImage;
+			   item.newteamBImage=newteamBImage;
 			})
 			return list;
 		},

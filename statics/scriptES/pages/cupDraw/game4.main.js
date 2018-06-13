@@ -33,12 +33,17 @@ var vue= new Vue({
 		formatList(list){
 			var  list=list||testlist;
 			list.forEach((item)=>{
+				item.matchTime=item.matchTime.split('.')[0];
 			   var time=new Date(item.matchTime.replace(/-/g,'/')); 			   
 			   var data=time.getMonth()+1+'月'+time.getDate()+'日';
 			   var  getMinutes=time.getMinutes()?time.getMinutes():'00';
 			   var hour=time.getHours()+':'+getMinutes;
+			   var newteamAImage=basePath+item.teamAImage;
+			   var newteamBImage=basePath+item.teamBImage;
 			   item.data=data;
 			   item.hour=hour;
+			   item.newteamAImage=newteamAImage;
+			   item.newteamBImage=newteamBImage;
 			})
 			return list;
 		},

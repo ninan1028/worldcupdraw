@@ -17,16 +17,18 @@
            </div>
 
            <article>
-               <div class="item" v-if="!isSelected"  flex="main:justify"  v-for="(item,index) in list" :key="item.id"  >
-                   <div class="name" :class="{active:teamstatus[index].teamId==item.teamA}" @click="tap(index,item.teamA)" >
-                       {{item.teamAName}}
+               <div class="item" v-if="!isSelected"  flex="main:justify cross:center"  v-for="(item,index) in list" :key="item.id"  >
+                   <div class="name" :class="{active:teamstatus[index].teamId==item.teamA}"  @click="tap(index,item.teamA)" >
+                    <img class="teamimg" :src="item.newteamAImage" alt="">  
+                    <span>{{item.teamAName}}</span> 
                    </div>
                    <div class="info">
                        <p>{{item.matchCode.toUpperCase()}} {{item.matchAdress}}</p>
                        <p><span>{{item.data}}</span> {{item.hour}}</p>
                    </div>
                    <div class="name" :class="{active:teamstatus[index].teamId==item.teamB}" @click="tap(index,item.teamB)" >
-                    {{item.teamBName}}
+                    <img class="teamimg" :src="item.newteamBImage" alt="">
+                    <span>{{item.teamBName}}</span>
                    </div>
                </div>
                <!-- 选中 -->

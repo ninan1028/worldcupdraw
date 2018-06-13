@@ -457,7 +457,8 @@ var getUserCount = function getUserCount() {
  * 主页逻辑
  */
 
-var audioStatus = localStorage.getItem('cupdraw');
+//var audioStatus=localStorage.getItem('cupdraw');
+var audioStatus = true;
 if (audioStatus == null) {
 	audioStatus = true;
 }
