@@ -1,1 +1,0 @@
-$(function(){var a=$("#J_audio"),o=new Audio(imgUrl+"/cupdraw.mp3");o.loop=!0;var t=!0;setTimeout(function(){o.play()},800),a.on("click",function(){t=!t,localStorage.setItem("cupdrawstatus",t),t?($(this).removeClass("off"),o.play()):($(this).addClass("off"),o.pause())})});
