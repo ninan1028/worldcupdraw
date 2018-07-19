@@ -55,7 +55,7 @@ var vue= new Vue({
                } else{
                    //要提交的数据
                    var obj={
-                    roundsCode:roundsCode,
+                    roundsCode:4,
                     groupCode:'',
                     matchId:item.id,
                     score:item.scoreA+':'+item.scoreB

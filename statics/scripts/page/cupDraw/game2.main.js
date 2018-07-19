@@ -503,7 +503,7 @@ var vue = new Vue({
 				} else {
 					//要提交的数据
 					var obj = {
-						roundsCode: 4,
+						roundsCode: roundsCode,
 						groupCode: '',
 						matchId: item.id,
 						score: item.scoreA + ':' + item.scoreB
